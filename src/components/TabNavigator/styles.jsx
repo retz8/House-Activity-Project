@@ -21,9 +21,10 @@ fontFamily: "BalooBhaijaan2-Medium",
 
 const styles = StyleSheet.create({
   container: {},
-  imageButton: {
+  homeIcon: {
     // need styling
   },
+  // add more icons
 });
 
 export default styles;

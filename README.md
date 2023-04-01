@@ -28,7 +28,7 @@ First, open "dev" branch
 
     git branch
     git switch dev
-    git pull origin dev 
+    git pull origin dev
 
 Second, open your own branch and merge dev branch
 
@@ -39,6 +39,15 @@ Second, open your own branch and merge dev branch
     git push -u origin <your first name>
 
 ### 5. Wow, you are ready to work on the project!
+
+First, Open command line and run following command to test
+
+    npm start
+    expo start
+
+Second, create .env file at the same level as package.json file (outside of src)
+
+-> Check Notion Page and find .env configuration task. Copy and past everything in "Description" to your .env file.
 
 ## WorkFlow
 

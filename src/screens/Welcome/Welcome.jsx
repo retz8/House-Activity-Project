@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button, LogBox } from "react-native";
+import { LogBox, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ImageButton from "../../components/ImageButton/ImageButton";
 import * as Google from "expo-auth-session/providers/google";
@@ -7,6 +7,7 @@ import * as WebBrowser from "expo-web-browser";
 import styles from "./styles";
 import { loggedInUserContext } from "../../hooks/UserContext";
 import { Image } from "react-native";
+import { Text } from "react-native";
 
 WebBrowser.maybeCompleteAuthSession();
 LogBox.ignoreAllLogs();
@@ -81,18 +82,24 @@ function Welcome({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       {/* Login */}
-      {loggingIn ? (
-        <Image
-          source={require("../../../assets/Welcome/loggingInButton.png")}
-          style={styles.imageButton}
-        />
-      ) : (
-        <ImageButton
-          source={require("../../../assets/Welcome/loginButton.png")}
-          style={styles.imageButton}
-          onPress={() => promptAsync({ showInRecents: false })}
-        />
-      )}
+
+      <View>
+        <Text>Hello World</Text>
+        {loggingIn ? (
+          // Loading Image, same button size as Login button
+          <Image
+            source={require("../../../assets/Welcome/loggingInButton.png")}
+            style={styles.imageButton}
+          />
+        ) : (
+          // Login Image button
+          <ImageButton
+            source={require("../../../assets/Welcome/loginButton.png")}
+            style={styles.imageButton}
+            onPress={() => promptAsync({ showInRecents: false })}
+          />
+        )}
+      </View>
     </SafeAreaView>
   );
 }

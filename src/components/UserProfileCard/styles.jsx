@@ -20,9 +20,13 @@ fontFamily: "BalooBhaijaan2-Medium",
 */
 
 const styles = StyleSheet.create({
-  container: {},
-  imageButton: {
-    // need styling
+  container: {
+    width: "100%",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    borderColor: "black",
+    borderWidth: 10,
   },
 });
 

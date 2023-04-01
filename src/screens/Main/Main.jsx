@@ -1,44 +1,54 @@
-import { Button, Text } from "react-native";
+import { Button, Text, View } from "react-native";
 import React, { useEffect, useContext, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { loggedInUserContext } from "../../hooks/UserContext";
-import * as AuthSession from "expo-auth-session";
+import styles from "./styles";
+import Slider from "./Slider/Slider";
+import { getAllEvents } from "../../api/event";
 
 export default function Main({ navigation, route }) {
   const { loggedInUser, accessToken, setAccessToken, setLoggedInUser } =
     useContext(loggedInUserContext);
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const [allEvents, setAllEvents] = useState([]);
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
-    console.log(loggedInUser);
+    // console.log(loggedInUser);
   }, [navigation]);
 
-  const logout = async () => {
-    await AuthSession.revokeAsync(
-      {
-        token: accessToken,
-      },
-      {
-        revocationEndpoint: "https://oauth2.googleapis.com/revoke",
-      }
-    );
-    console.log("Logout!");
-    setIsLoggingOut(true);
-    setAccessToken(undefined);
-    setLoggedInUser(undefined);
-
-    navigation.navigate("Welcome");
+  const fetchAllEvents = async () => {
+    const { error, events } = await getAllEvents();
+    if (error) return console.log(error);
+    setAllEvents(events);
   };
+
+  useEffect(() => {
+    fetchAllEvents();
+  }, []);
 
   return (
     <SafeAreaView>
-      <Button title="Logout" onPress={logout} />
-      {!isLoggingOut ? (
-        <Text>{loggedInUser.displayName}</Text>
-      ) : (
-        <Text>Logging out...</Text>
-      )}
+      <View>
+        <Text style={styles.testText}>This is a main page</Text>
+        <Button
+          title="go to house profile"
+          onPress={() =>
+            navigation.navigate("HouseProfile", { houseName: "Albemarle" })
+          }
+        />
+        <Button
+          title="go to user profile"
+          onPress={() =>
+            navigation.navigate("UserProfile", { user: loggedInUser })
+          }
+        />
+        <Slider data={allEvents} />
+
+        {/* House Points Leaderboard */}
+
+        {/* Events Preview */}
+      </View>
     </SafeAreaView>
   );
 }

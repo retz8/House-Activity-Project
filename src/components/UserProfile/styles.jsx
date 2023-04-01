@@ -5,8 +5,9 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "aqua",
   },
   logoutButton: {
     width: verticalScale(275), // for responsive design, convert the size fitting into emulator
@@ -16,10 +17,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "green",
   },
-  testText: {
-    fontFamily: "BalooBhaijaan2-Regular",
-    fontSize: 30,
-  },
 });
+
+// fontFamily: "BalooBhaijaan2-Bold",
 
 export default styles;
