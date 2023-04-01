@@ -28,12 +28,12 @@ First, open "dev" branch
 
     git branch
     git switch dev
-    git pull origin dev
+    git pull origin dev 
 
 Second, open your own branch and merge dev branch
 
     git switch <your first name>
-    git merge dev
+    git merge dev --allow-unrelated-histories
     git add .
     git commit -m "first commit"
     git push -u origin <your first name>
