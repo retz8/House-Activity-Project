@@ -37,7 +37,7 @@ export default function Main({ navigation, route }) {
       {!isLoggingOut ? (
         <Text>{loggedInUser.displayName}</Text>
       ) : (
-        <Text>Logging out...</Text>
+        <Text>Logging out..d.</Text>
       )}
     </SafeAreaView>
   );
