@@ -42,7 +42,7 @@ Second, open your own branch and merge dev branch
 
 First, Open command line and run following command to test
 
-    npm start
+    npm install
     expo start
 
 Second, create .env file at the same level as package.json file (outside of src)
