@@ -59,13 +59,11 @@ You will follow this work flow during club time (or whenver you want to work wit
 
 ### 5. When you think your task is done or need code review, send Pull Request to dev branch
 
-First, run following command.
-
     git add .
     git commit -m "<commit message, please write it clearly>"
     git push -u origin <your first name>
 
-Second, visit the repository on GitHub in your web browser and navigato your own branch.
+### 6. Visit the repository on GitHub in your web browser and navigate your own branch.
 
 1. Click the "New Pull Request" button on the page. This will take you to the "Open a pull request" page.
 
