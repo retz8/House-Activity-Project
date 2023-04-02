@@ -43,9 +43,12 @@ Second, open your own branch and merge dev branch
 First, Open command line and run following command to test
 
     npm install
-    expo start
 
 Second, create .env file at the same level as package.json file (outside of src)
+
+Third, run following command
+
+    expo start
 
 -> Check Notion Page and find .env configuration task. Copy and past everything in "Description" to your .env file.
 

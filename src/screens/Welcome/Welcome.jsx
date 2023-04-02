@@ -83,23 +83,21 @@ function Welcome({ navigation }) {
     <SafeAreaView style={styles.container}>
       {/* Login */}
 
-      <View>
-        <Text>Hello World</Text>
-        {loggingIn ? (
-          // Loading Image, same button size as Login button
-          <Image
-            source={require("../../../assets/Welcome/loggingInButton.png")}
-            style={styles.imageButton}
-          />
-        ) : (
-          // Login Image button
-          <ImageButton
-            source={require("../../../assets/Welcome/loginButton.png")}
-            style={styles.imageButton}
-            onPress={() => promptAsync({ showInRecents: false })}
-          />
-        )}
-      </View>
+      <Text>Hello World</Text>
+      {loggingIn ? (
+        // Loading Image, same button size as Login button
+        <Image
+          source={require("../../../assets/Welcome/loggingInButton.png")}
+          style={styles.imageButton}
+        />
+      ) : (
+        // Login Image button
+        <ImageButton
+          source={require("../../../assets/Welcome/loginButton.png")}
+          style={styles.imageButton}
+          onPress={() => promptAsync({ showInRecents: false })}
+        />
+      )}
     </SafeAreaView>
   );
 }
