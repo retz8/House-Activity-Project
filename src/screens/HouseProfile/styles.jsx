@@ -3,7 +3,7 @@ import {
   fontPercentage,
   horizontalScale,
   verticalScale,
-} from "../../../helpers/responsiveSize";
+} from "../../helpers/responsiveSize";
 
 /*
 WHEN YOU ARE USING WIDTH / HEIGHT / FONTSIZE
@@ -24,6 +24,27 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  backButtonContainer: {
+    height: horizontalScale(55),
+    width: "100%",
+  },
+  backButton: {
+    width: verticalScale(24),
+    height: horizontalScale(24),
+    left: horizontalScale(45),
+    top: verticalScale(18.32),
+    resizeMode: "cover",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  contentsContainer: {
+    width: "100%",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    borderColor: "green",
+    borderWidth: 1,
   },
 });
 

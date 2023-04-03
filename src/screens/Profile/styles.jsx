@@ -8,13 +8,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  logoutButtonContainer: {
+    height: horizontalScale(55),
+    width: "100%",
+  },
   logoutButton: {
-    width: verticalScale(275), // for responsive design, convert the size fitting into emulator
-    height: horizontalScale(50), // horizontal/vertialScale(pixel size on Figma file)
+    width: verticalScale(100), // for responsive design, convert the size fitting into emulator
+    height: horizontalScale(20), // horizontal/vertialScale(pixel size on Figma file)
+    left: horizontalScale(45),
+    top: verticalScale(18.32),
     resizeMode: "cover",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "green",
+    backgroundColor: "gray",
   },
   testText: {
     fontFamily: "BalooBhaijaan2-Regular",

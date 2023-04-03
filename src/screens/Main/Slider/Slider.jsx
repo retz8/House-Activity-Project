@@ -15,9 +15,10 @@ export default function Slider({ data }) {
 
   return (
     <View>
-      {data.map((ev) => {
+      {/* {data.map((ev) => {
         return <Text style={styles.testText}>{ev.title}</Text>;
-      })}
+      })} */}
+      <Text>Hello World</Text>
     </View>
   );
 }

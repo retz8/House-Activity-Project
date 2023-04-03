@@ -5,7 +5,7 @@ import MainStack from "./src/screens/Main/MainStack";
 import UserContext from "./src/hooks/UserContext";
 import { useFonts } from "expo-font";
 import UserProfile from "./src/components/UserProfile/UserProfile";
-import HouseProfile from "./src/components/HouseProfile/HouseProfile";
+import HouseProfile from "./src/screens/HouseProfile/HouseProfile";
 
 const Stack = createNativeStackNavigator();
 

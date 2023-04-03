@@ -42,6 +42,18 @@ export default function Main({ navigation, route }) {
           navigation.navigate("UserProfile", { user: loggedInUser })
         }
       />
+      <Button
+        title="go to Albemarle house profile"
+        onPress={() =>
+          navigation.navigate("HouseProfile", { houseName: "Albemarle" })
+        }
+      />
+      <Button
+        title="go to Lambert house profile"
+        onPress={() =>
+          navigation.navigate("HouseProfile", { houseName: "Lambert" })
+        }
+      />
       <Slider data={allEvents} />
 
       {/* House Points Leaderboard */}

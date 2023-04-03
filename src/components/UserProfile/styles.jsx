@@ -7,15 +7,19 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "aqua",
   },
-  logoutButton: {
-    width: verticalScale(275), // for responsive design, convert the size fitting into emulator
-    height: horizontalScale(50), // horizontal/vertialScale(pixel size on Figma file)
+  backButtonContainer: {
+    height: horizontalScale(55),
+    width: "100%",
+  },
+  backButton: {
+    width: verticalScale(24), // for responsive design, convert the size fitting into emulator
+    height: horizontalScale(24), // horizontal/vertialScale(pixel size on Figma file)
+    left: horizontalScale(45),
+    top: verticalScale(18.32),
     resizeMode: "cover",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "green",
   },
 });
 

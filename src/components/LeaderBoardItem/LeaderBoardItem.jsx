@@ -17,7 +17,7 @@ import styles from "./styles";
 
 export default function LeaderBoardItem() {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>LeaderBoard</Text>
     </View>
   );

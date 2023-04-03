@@ -45,9 +45,11 @@ export default function Profile({ navigation }) {
       ) : (
         <View style={styles.container}>
           {/* 1. Logout Button: need styling */}
-          <TouchableOpacity style={styles.logoutButton} onPress={logout}>
-            <Text>Logout</Text>
-          </TouchableOpacity>
+          <View style={styles.logoutButtonContainer}>
+            <TouchableOpacity style={styles.logoutButton} onPress={logout}>
+              <Text>Logout</Text>
+            </TouchableOpacity>
+          </View>
 
           {/* 2. UserProfileCard: user = loggedInUser */}
           <UserProfileCard user={loggedInUser} />

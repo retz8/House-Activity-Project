@@ -1,17 +1,6 @@
 // <UserProfileCard>
-// user: {
-//   id: user's id in database,
-//   displayName: user's full name,
-//   email: user's google email,
-//   profilePic: user's profile picture,
-//     {
-//       url: profile picture url (use this value as an image source)
-//       public_id: public_id on cloudinary
-//     }
-//   introduction: user's introduction,
-//   role: user's role,
-//   house: user's house,'
-// },
+// user: current user
+// please refer to "API Documentation" for more details to access values of user
 
 import { Button, Text, TouchableOpacity, View } from "react-native";
 import React, { Component, useContext, useState } from "react";

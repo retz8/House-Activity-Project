@@ -21,6 +21,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { loggedInUserContext } from "../../hooks/UserContext";
 import styles from "./styles";
 import UserProfileCard from "../UserProfileCard/UserProfileCard";
+import ImageButton from "../ImageButton/ImageButton";
 
 export default function UserProfile({ navigation, route }) {
   const { user } = route.params;
@@ -31,7 +32,14 @@ export default function UserProfile({ navigation, route }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Button title="go back" onPress={() => navigation.pop()} />
+      <View style={styles.backButtonContainer}>
+        <ImageButton
+          source={require("../../../assets/UserProfile/backButton.png")}
+          style={styles.backButton}
+          onPress={() => navigation.pop()}
+        />
+      </View>
+
       <UserProfileCard user={user} />
     </SafeAreaView>
   );
