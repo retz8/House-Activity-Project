@@ -14,7 +14,6 @@ export default function Profile({ navigation }) {
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
-    // console.log(loggedInUser);
   }, [navigation]);
 
   // Logout Logic ----------------------------------------

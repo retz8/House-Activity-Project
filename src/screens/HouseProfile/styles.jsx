@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   backButton: {
-    width: verticalScale(24),
-    height: horizontalScale(24),
+    width: verticalScale(30),
+    height: horizontalScale(30),
     left: horizontalScale(45),
     top: verticalScale(18.32),
     resizeMode: "cover",

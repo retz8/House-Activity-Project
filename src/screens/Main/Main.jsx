@@ -31,12 +31,6 @@ export default function Main({ navigation, route }) {
     <SafeAreaView style={styles.container}>
       <Text style={styles.testText}>This is a main page</Text>
       <Button
-        title="go to house profile"
-        onPress={() =>
-          navigation.navigate("HouseProfile", { houseName: "Albemarle" })
-        }
-      />
-      <Button
         title="go to user profile"
         onPress={() =>
           navigation.navigate("UserProfile", { user: loggedInUser })

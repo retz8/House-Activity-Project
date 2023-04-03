@@ -61,6 +61,7 @@ export default function HouseProfile({ navigation, route }) {
       {house && leaders && members ? (
         <View style={styles.contentsContainer}>
           <Text>{house.name}</Text>
+          <Text>{house.point}</Text>
         </View>
       ) : (
         <Text>Loading...</Text>

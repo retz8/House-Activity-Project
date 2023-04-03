@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   backButton: {
-    width: verticalScale(24), // for responsive design, convert the size fitting into emulator
-    height: horizontalScale(24), // horizontal/vertialScale(pixel size on Figma file)
+    width: verticalScale(30), // for responsive design, convert the size fitting into emulator
+    height: horizontalScale(30), // horizontal/vertialScale(pixel size on Figma file)
     left: horizontalScale(45),
     top: verticalScale(18.32),
     resizeMode: "cover",

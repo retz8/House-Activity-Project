@@ -7,7 +7,9 @@ import * as WebBrowser from "expo-web-browser";
 import styles from "./styles";
 import { loggedInUserContext } from "../../hooks/UserContext";
 import { Image } from "react-native";
+import { API_URL } from "@env";
 import { Text } from "react-native";
+import { ANDROID_CLIENT_ID, IOS_CLIENT_ID, EXPO_CLIENT_ID } from "@env";
 
 WebBrowser.maybeCompleteAuthSession();
 LogBox.ignoreAllLogs();
@@ -17,12 +19,9 @@ function Welcome({ navigation }) {
   const [loggingIn, setLogginIn] = useState(false);
 
   const [request, response, promptAsync] = Google.useAuthRequest({
-    androidClientId:
-      "663350635242-o7a5c8edndbe8mdjd9o7kgl18rk72jbo.apps.googleusercontent.com",
-    iosClientId:
-      "663350635242-6krbv85q4p0gpuiibu34npfl441c8jm3.apps.googleusercontent.com",
-    expoClientId:
-      "663350635242-9qgom49t0skuhfjfhbf2p3olk16g21m8.apps.googleusercontent.com",
+    androidClientId: ANDROID_CLIENT_ID,
+    iosClientId: IOS_CLIENT_ID,
+    expoClientId: EXPO_CLIENT_ID,
   });
 
   // handle google login + backend request
@@ -46,7 +45,7 @@ function Welcome({ navigation }) {
 
           const user = await googleResponse.json();
 
-          fetch("http://192.168.0.114:8080/api/auth/create", {
+          fetch(API_URL + "/api/auth/create", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
