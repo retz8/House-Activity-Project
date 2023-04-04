@@ -17,7 +17,9 @@ LogBox.ignoreAllLogs();
 function Welcome({ navigation }) {
   const { setLoggedInUser, setAccessToken } = useContext(loggedInUserContext);
   const [loggingIn, setLogginIn] = useState(false);
+  console.log(EXPO_CLIENT_ID)
 
+  console.log(EXPO_CLIENT_ID);
   const [request, response, promptAsync] = Google.useAuthRequest({
     androidClientId: ANDROID_CLIENT_ID,
     iosClientId: IOS_CLIENT_ID,
@@ -60,6 +62,7 @@ function Welcome({ navigation }) {
             .then((data) => {
               setLogginIn(false);
               setLoggedInUser(data);
+              console.log(data);
               console.log("successfully fetched user!");
               console.log("Navigating to main page...");
               navigation.push("MainStack");
