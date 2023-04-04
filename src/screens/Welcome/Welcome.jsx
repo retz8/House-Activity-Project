@@ -11,12 +11,20 @@ import { API_URL } from "@env";
 import axios from "axios";
 import { Text } from "react-native";
 import { ANDROID_CLIENT_ID, IOS_CLIENT_ID, EXPO_CLIENT_ID } from "@env";
+import { getEvents, getFilteredEvents } from "../../api/event";
 
 WebBrowser.maybeCompleteAuthSession();
 LogBox.ignoreAllLogs();
 
 function Welcome({ navigation }) {
-  const { setLoggedInUser, setAccessToken } = useContext(loggedInUserContext);
+  const {
+    setLoggedInUser,
+    setAccessToken,
+    initialEvents,
+    setInitialEvents,
+    initialFilteredEvents,
+    setInitialFilteredEvents,
+  } = useContext(loggedInUserContext);
   const [loggingIn, setLogginIn] = useState(false);
 
   console.log(EXPO_CLIENT_ID);
@@ -60,12 +68,23 @@ function Welcome({ navigation }) {
             }),
           })
             .then((response) => response.json())
-            .then((data) => {
-              setLogginIn(false);
+            .then(async (data) => {
               setLoggedInUser(data);
-              console.log(data);
+
+              // pageNum: 0, limit: 5,
+              const { error, events } = await getEvents(0, 5);
+              if (error) return console.log(error);
+              setInitialEvents(events);
+
+              // pageNum: 0, limit: 5 - Leaderboard,
+              const { error: f_error, events: f_events } =
+                await getFilteredEvents(0, 5);
+              if (f_error) return console.log(error);
+              setInitialFilteredEvents(f_events);
+
               console.log("successfully fetched user!");
               console.log("Navigating to main page...");
+              setLogginIn(false);
               navigation.push("MainStack");
             })
             .catch((error) => {

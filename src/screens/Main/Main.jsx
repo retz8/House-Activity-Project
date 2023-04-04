@@ -7,8 +7,13 @@ import Slider from "./Slider/Slider";
 import { getAllEvents } from "../../api/event";
 
 export default function Main({ navigation, route }) {
-  const { loggedInUser, accessToken, setAccessToken, setLoggedInUser } =
-    useContext(loggedInUserContext);
+  const {
+    loggedInUser,
+    initialEvents,
+    accessToken,
+    setAccessToken,
+    setLoggedInUser,
+  } = useContext(loggedInUserContext);
 
   const [allEvents, setAllEvents] = useState([]);
 
@@ -24,6 +29,7 @@ export default function Main({ navigation, route }) {
   };
 
   useEffect(() => {
+    //console.log(initialEvents);
     fetchAllEvents();
   }, []);
 
@@ -52,7 +58,7 @@ export default function Main({ navigation, route }) {
 
       {/* House Points Leaderboard */}
 
-      {/* Events Preview */}
+      {/* Events Preview FlatList, use initialEvents and fetchMoreEvents()*/}
     </SafeAreaView>
   );
 }
