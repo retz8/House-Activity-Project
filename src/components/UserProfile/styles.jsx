@@ -5,27 +5,24 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
+    justifyContent: "center",
   },
-  logoutButtonContainer: {
+  backButtonContainer: {
     height: horizontalScale(55),
     width: "100%",
   },
-  logoutButton: {
-    width: verticalScale(100), // for responsive design, convert the size fitting into emulator
-    height: horizontalScale(20), // horizontal/vertialScale(pixel size on Figma file)
+  backButton: {
+    width: verticalScale(30), // for responsive design, convert the size fitting into emulator
+    height: horizontalScale(30), // horizontal/vertialScale(pixel size on Figma file)
     left: horizontalScale(45),
     top: verticalScale(18.32),
     resizeMode: "cover",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "gray",
-  },
-  testText: {
-    fontFamily: "BalooBhaijaan2-Regular",
-    fontSize: 30,
   },
 });
+
+// fontFamily: "BalooBhaijaan2-Bold",
 
 export default styles;

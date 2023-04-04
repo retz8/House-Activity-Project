@@ -22,11 +22,8 @@ fontFamily: "BalooBhaijaan2-Medium",
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
-  },
-  imageButton: {
-    // need styling
+    justifyContent: "center",
   },
 });
 

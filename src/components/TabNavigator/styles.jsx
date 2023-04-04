@@ -20,14 +20,11 @@ fontFamily: "BalooBhaijaan2-Medium",
 */
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  imageButton: {
+  container: {},
+  homeIcon: {
     // need styling
   },
+  // add more icons
 });
 
 export default styles;

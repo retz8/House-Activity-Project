@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button, LogBox } from "react-native";
+import { LogBox, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ImageButton from "../../components/ImageButton/ImageButton";
 import * as Google from "expo-auth-session/providers/google";
@@ -7,6 +7,10 @@ import * as WebBrowser from "expo-web-browser";
 import styles from "./styles";
 import { loggedInUserContext } from "../../hooks/UserContext";
 import { Image } from "react-native";
+import { API_URL } from "@env";
+import axios from "axios";
+import { Text } from "react-native";
+import { ANDROID_CLIENT_ID, IOS_CLIENT_ID, EXPO_CLIENT_ID } from "@env";
 
 WebBrowser.maybeCompleteAuthSession();
 LogBox.ignoreAllLogs();
@@ -15,13 +19,11 @@ function Welcome({ navigation }) {
   const { setLoggedInUser, setAccessToken } = useContext(loggedInUserContext);
   const [loggingIn, setLogginIn] = useState(false);
 
+  console.log(EXPO_CLIENT_ID);
   const [request, response, promptAsync] = Google.useAuthRequest({
-    androidClientId:
-      "663350635242-o7a5c8edndbe8mdjd9o7kgl18rk72jbo.apps.googleusercontent.com",
-    iosClientId:
-      "663350635242-6krbv85q4p0gpuiibu34npfl441c8jm3.apps.googleusercontent.com",
-    expoClientId:
-      "663350635242-9qgom49t0skuhfjfhbf2p3olk16g21m8.apps.googleusercontent.com",
+    androidClientId: ANDROID_CLIENT_ID,
+    iosClientId: IOS_CLIENT_ID,
+    expoClientId: EXPO_CLIENT_ID,
   });
 
   // handle google login + backend request
@@ -44,8 +46,9 @@ function Welcome({ navigation }) {
           );
 
           const user = await googleResponse.json();
+          console.log(user);
 
-          fetch("http://192.168.0.114:8080/api/auth/create", {
+          fetch(API_URL + "/api/auth/create", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -60,6 +63,7 @@ function Welcome({ navigation }) {
             .then((data) => {
               setLogginIn(false);
               setLoggedInUser(data);
+              console.log(data);
               console.log("successfully fetched user!");
               console.log("Navigating to main page...");
               navigation.push("MainStack");
@@ -81,12 +85,16 @@ function Welcome({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       {/* Login */}
+
+      <Text>Hello World</Text>
       {loggingIn ? (
+        // Loading Image, same button size as Login button
         <Image
           source={require("../../../assets/Welcome/loggingInButton.png")}
           style={styles.imageButton}
         />
       ) : (
+        // Login Image button
         <ImageButton
           source={require("../../../assets/Welcome/loginButton.png")}
           style={styles.imageButton}
