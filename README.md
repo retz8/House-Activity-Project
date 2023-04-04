@@ -45,12 +45,17 @@ First, Open command line and run following command to test
     npm install
 
 Second, create .env file at the same level as package.json file (outside of src)
+-> Check Notion Page and find .env configuration task. Copy and past everything in "Description" to your .env file.
 
 Third, run following command
 
     expo start
 
--> Check Notion Page and find .env configuration task. Copy and past everything in "Description" to your .env file.
+If this doesn't work, try
+
+    npm start
+
+If you see some warning about Expo account, you are fine to ignore it.
 
 ## WorkFlow
 

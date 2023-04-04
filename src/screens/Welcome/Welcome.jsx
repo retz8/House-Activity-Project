@@ -8,6 +8,7 @@ import styles from "./styles";
 import { loggedInUserContext } from "../../hooks/UserContext";
 import { Image } from "react-native";
 import { API_URL } from "@env";
+import axios from "axios";
 import { Text } from "react-native";
 import { ANDROID_CLIENT_ID, IOS_CLIENT_ID, EXPO_CLIENT_ID } from "@env";
 
@@ -46,6 +47,7 @@ function Welcome({ navigation }) {
           );
 
           const user = await googleResponse.json();
+          console.log(user);
 
           fetch(API_URL + "/api/auth/create", {
             method: "POST",
