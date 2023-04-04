@@ -17,6 +17,7 @@ LogBox.ignoreAllLogs();
 function Welcome({ navigation }) {
   const { setLoggedInUser, setAccessToken } = useContext(loggedInUserContext);
   const [loggingIn, setLogginIn] = useState(false);
+  console.log(EXPO_CLIENT_ID)
 
   const [request, response, promptAsync] = Google.useAuthRequest({
     androidClientId: ANDROID_CLIENT_ID,
