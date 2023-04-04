@@ -1,5 +1,7 @@
 import axios from "axios";
+import { API_URL } from "@env";
 
-const client = axios.create({ baseURL: "http://192.168.0.114:8080/api" });
+const base_url = API_URL + "/api";
+const client = axios.create({ baseURL: base_url });
 
 export default client;

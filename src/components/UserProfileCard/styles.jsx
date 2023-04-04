@@ -21,12 +21,12 @@ fontFamily: "BalooBhaijaan2-Medium",
 
 const styles = StyleSheet.create({
   container: {
+    width: "100%",
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
-  },
-  imageButton: {
-    // need styling
+    justifyContent: "center",
+    borderColor: "green",
+    borderWidth: 1,
   },
 });
 
