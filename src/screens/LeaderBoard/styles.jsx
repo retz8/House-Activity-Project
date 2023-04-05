@@ -26,6 +26,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  eventSummariesContainer: {
+    width: "100%",
+    height: horizontalScale(287),
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
 
 export default styles;

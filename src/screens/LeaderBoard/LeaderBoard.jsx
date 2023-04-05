@@ -56,36 +56,39 @@ export default function LeaderBoard({ navigation }) {
       {/* 1. House Points Visualization (Leaderboard Four houses) */}
       <LeaderBoardItem />
       {/* 2. FlatList rendering all of the events summary */}
-      {filteredEvents ? (
-        // <FlatList
-        // //
-        // // for data, pass filteredEvents
-        // // for renderItem, render EventSummary component, don't pass onPress now
+      <View style={styles.eventSummariesContainer}>
+        {filteredEvents ? (
+          // <FlatList
+          // //
+          // // for data, pass filteredEvents
+          // // for renderItem, render EventSummary component, don't pass onPress now
 
-        // ** THE CODE BELOW IS TO FETCH MORE POSTS WHEN USER SCROLLS DOWN **
-        // ** PLEASE LEAVE THE CODE BELOW, IF YOU THINK THE CODE BELOW HAS AN ERROR, **
-        // ** LET JIOH KNOW **
-        // onEndReached={fetchMorePosts}
-        // onEndReachedThreshold={0.1} // only call method when it compeltely ends
-        // ListFooterComponent={() => {
-        //   return reachedToEnd ? (
-        //     <Text
-        //       styles={{
-        //         fontWeight: "bold",
-        //         color: "#383838",
-        //         textAlign: "center",
-        //         paddingVertical: 15,
-        //       }}
-        //     >
-        //       You reached to the end!
-        //     </Text>
-        //   ) : null;
-        // }}
-        // />
-        <Text>FlatList...</Text>
-      ) : (
-        <Text>Loading..</Text>
-      )}
+          // ** THE CODE BELOW IS TO FETCH MORE POSTS WHEN USER SCROLLS DOWN **
+          // ** PLEASE LEAVE THE CODE BELOW, IF YOU THINK THE CODE BELOW HAS AN ERROR, **
+          // ** LET JIOH KNOW **
+          // onEndReached={fetchMorePosts}
+          // onEndReachedThreshold={0.1} // only call method when it compeltely ends
+          // ListFooterComponent={() => {
+          //   return reachedToEnd ? (
+          //     <Text
+          //       styles={{
+          //         fontWeight: "bold",
+          //         color: "#383838",
+          //         textAlign: "center",
+          //         paddingVertical: 15,
+          //       }}
+          //     >
+          //       You reached to the end!
+          //     </Text>
+          //   ) : null;
+          // }}
+
+          // />
+          <Text>FlatList...</Text>
+        ) : (
+          <Text>Loading..</Text>
+        )}
+      </View>
     </SafeAreaView>
   );
 }
