@@ -20,19 +20,26 @@ fontFamily: "BalooBhaijaan2-Medium",
 */
 
 const styles = StyleSheet.create({
-  renderItemContainer: {
-    marginBottom: verticalScale(7.5),
-  },
   container: {
-    paddingTop: verticalScale(20),
+    width: "100%",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    borderColor: "green",
+    borderWidth: 1,
   },
-  searchPageTitle: {
-    top: verticalScale(5),
-    left: horizontalScale(30),
-    fontFamily: "BalooBhaijaan2-Bold",
-    color: "#4E3535",
-    fontSize: fontPercentage(30),
-    paddingBottom: verticalScale(5),
+  backButtonContainer: {
+    height: horizontalScale(55),
+    width: "100%",
+  },
+  backButton: {
+    width: verticalScale(30), // for responsive design, convert the size fitting into emulator
+    height: horizontalScale(30), // horizontal/vertialScale(pixel size on Figma file)
+    left: horizontalScale(45),
+    top: verticalScale(18.32),
+    resizeMode: "cover",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
