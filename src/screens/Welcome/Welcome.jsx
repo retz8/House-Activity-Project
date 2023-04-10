@@ -27,7 +27,7 @@ function Welcome({ navigation }) {
   } = useContext(loggedInUserContext);
   const [loggingIn, setLogginIn] = useState(false);
 
-  console.log(EXPO_CLIENT_ID);
+  //console.log(EXPO_CLIENT_ID);
   const [request, response, promptAsync] = Google.useAuthRequest({
     androidClientId: ANDROID_CLIENT_ID,
     iosClientId: IOS_CLIENT_ID,
@@ -54,7 +54,7 @@ function Welcome({ navigation }) {
           );
 
           const user = await googleResponse.json();
-          console.log(user);
+          //console.log(user);
 
           fetch(API_URL + "/api/auth/create", {
             method: "POST",
@@ -105,7 +105,13 @@ function Welcome({ navigation }) {
     <SafeAreaView style={styles.container}>
       {/* Login */}
 
-      <Text>Hello World</Text>
+      <Text style={styles.welcomeText}>Welcome to</Text>
+      <Text style={styles.appNameText}>Pig Says Oink!</Text>
+      <View style={styles.descContainer}>
+        <Text style={styles.descText}>For </Text>
+        <Text style={styles.schoolNameText}>PRISMS </Text>
+        <Text style={styles.descText}>House Events</Text>
+      </View>
       {loggingIn ? (
         // Loading Image, same button size as Login button
         <Image
