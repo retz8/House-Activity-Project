@@ -11,6 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import LeaderBoardItem from "../../components/LeaderBoardItem/LeaderBoardItem";
 import { getFilteredEvents } from "../../api/event";
 import { loggedInUserContext } from "../../hooks/UserContext";
+import Loading from "../../components/Loading/Loading";
 
 let pageNum = 1;
 const limit = 5;
@@ -18,7 +19,7 @@ const limit = 5;
 export default function LeaderBoard({ navigation }) {
   const [reachedToEnd, setReachedToEnd] = useState(false);
   const [busy, setBusy] = useState(false);
-  const [filteredEvents, setFilteredEvents] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState();
   const { loggedInUser, initialFilteredEvents } =
     useContext(loggedInUserContext);
 
@@ -51,14 +52,17 @@ export default function LeaderBoard({ navigation }) {
     };
   }, []);
 
+  if (!filteredEvents) {
+    return <Loading />;
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       {/* 1. House Points Visualization (Leaderboard Four houses) */}
       <LeaderBoardItem />
       {/* 2. FlatList rendering all of the events summary */}
       <View style={styles.eventSummariesContainer}>
-        {filteredEvents ? (
-          // <FlatList
+        {/* // <FlatList
           // //
           // // for data, pass filteredEvents
           // // for renderItem, render EventSummary component, don't pass onPress now
@@ -83,11 +87,8 @@ export default function LeaderBoard({ navigation }) {
           //   ) : null;
           // }}
 
-          // />
-          <Text>FlatList...</Text>
-        ) : (
-          <Text>Loading..</Text>
-        )}
+          // /> */}
+        <Text>FlatList...</Text>
       </View>
     </SafeAreaView>
   );
