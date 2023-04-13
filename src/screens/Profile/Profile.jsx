@@ -7,6 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { loggedInUserContext } from "../../hooks/UserContext";
 import styles from "./styles";
 import UserProfileCard from "../../components/UserProfileCard/UserProfileCard";
+import { getUser } from "../../api/user";
 
 export default function Profile({ navigation }) {
   const { loggedInUser, accessToken, setAccessToken, setLoggedInUser } =
