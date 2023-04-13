@@ -21,12 +21,38 @@ fontFamily: "BalooBhaijaan2-Medium",
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
+  welcomeText: {
+    top: verticalScale(171.5),
+    fontFamily: "BalooBhaijaan2-Bold",
+    fontSize: fontPercentage(30),
+  },
+  appNameText: {
+    top: verticalScale(171.5),
+    fontFamily: "BalooBhaijaan2-Bold",
+    fontSize: fontPercentage(30),
+    color: "#5D0E23",
+  },
+  descContainer: {
+    top: verticalScale(196),
+    flexDirection: "row",
+  },
+  descText: {
+    fontFamily: "BalooBhaijaan2-Bold",
+    fontSize: fontPercentage(21),
+  },
+  schoolNameText: {
+    fontFamily: "BalooBhaijaan2-Bold",
+    fontSize: fontPercentage(21),
+    color: "#5D0E23",
+  },
   imageButton: {
-    // need styling
+    top: verticalScale(228),
+    width: horizontalScale(275),
+    height: verticalScale(50),
+    resizeMode: "contain",
   },
 });
 

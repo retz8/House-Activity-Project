@@ -8,16 +8,26 @@ import styles from "./styles";
 import { loggedInUserContext } from "../../hooks/UserContext";
 import { Image } from "react-native";
 import { API_URL } from "@env";
+import axios from "axios";
 import { Text } from "react-native";
 import { ANDROID_CLIENT_ID, IOS_CLIENT_ID, EXPO_CLIENT_ID } from "@env";
+import { getEvents, getFilteredEvents } from "../../api/event";
 
 WebBrowser.maybeCompleteAuthSession();
 LogBox.ignoreAllLogs();
 
 function Welcome({ navigation }) {
-  const { setLoggedInUser, setAccessToken } = useContext(loggedInUserContext);
+  const {
+    setLoggedInUser,
+    setAccessToken,
+    initialEvents,
+    setInitialEvents,
+    initialFilteredEvents,
+    setInitialFilteredEvents,
+  } = useContext(loggedInUserContext);
   const [loggingIn, setLogginIn] = useState(false);
 
+  //console.log(EXPO_CLIENT_ID);
   const [request, response, promptAsync] = Google.useAuthRequest({
     androidClientId: ANDROID_CLIENT_ID,
     iosClientId: IOS_CLIENT_ID,
@@ -44,6 +54,7 @@ function Welcome({ navigation }) {
           );
 
           const user = await googleResponse.json();
+          //console.log(user);
 
           fetch(API_URL + "/api/auth/create", {
             method: "POST",
@@ -57,11 +68,23 @@ function Welcome({ navigation }) {
             }),
           })
             .then((response) => response.json())
-            .then((data) => {
-              setLogginIn(false);
+            .then(async (data) => {
               setLoggedInUser(data);
+
+              // pageNum: 0, limit: 5,
+              const { error, events } = await getEvents(0, 5);
+              if (error) return console.log(error);
+              setInitialEvents(events);
+
+              // pageNum: 0, limit: 5 - Leaderboard,
+              const { error: f_error, events: f_events } =
+                await getFilteredEvents(0, 5);
+              if (f_error) return console.log(error);
+              setInitialFilteredEvents(f_events);
+
               console.log("successfully fetched user!");
               console.log("Navigating to main page...");
+              setLogginIn(false);
               navigation.push("MainStack");
             })
             .catch((error) => {
@@ -82,7 +105,13 @@ function Welcome({ navigation }) {
     <SafeAreaView style={styles.container}>
       {/* Login */}
 
-      <Text>Hello World</Text>
+      <Text style={styles.welcomeText}>Welcome to</Text>
+      <Text style={styles.appNameText}>Pig Says Oink!</Text>
+      <View style={styles.descContainer}>
+        <Text style={styles.descText}>For </Text>
+        <Text style={styles.schoolNameText}>PRISMS </Text>
+        <Text style={styles.descText}>House Events</Text>
+      </View>
       {loggingIn ? (
         // Loading Image, same button size as Login button
         <Image
