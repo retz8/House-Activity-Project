@@ -20,29 +20,15 @@ fontFamily: "BalooBhaijaan2-Medium",
 */
 
 const styles = StyleSheet.create({
-  renderItemContainer: {
-    marginBottom: verticalScale(7.5),
-  },
   container: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  listContainer: {
-    flex: 1,
-    paddingTop: verticalScale(20),
-  },
-  searchPageTitle: {
-    top: verticalScale(5),
-    left: horizontalScale(30),
+  loadingText: {
     fontFamily: "BalooBhaijaan2-Bold",
     color: "#4E3535",
     fontSize: fontPercentage(30),
-    paddingBottom: verticalScale(5),
-  },
-  noEventsText: {
-    fontFamily: "BalooBhaijaan2-Bold",
-    fontSize: fontPercentage(15),
-    alignSelf: "center",
-    opacity: 0.5,
   },
 });
 

@@ -54,7 +54,7 @@ function Welcome({ navigation }) {
           );
 
           const user = await googleResponse.json();
-          console.log(user);
+          //console.log(user);
 
           fetch(API_URL + "/api/auth/create", {
             method: "POST",
@@ -105,7 +105,13 @@ function Welcome({ navigation }) {
     <SafeAreaView style={styles.container}>
       {/* Login */}
 
-      <Text>Hello World</Text>
+      <Text style={styles.welcomeText}>Welcome to</Text>
+      <Text style={styles.appNameText}>Pig Says Oink!</Text>
+      <View style={styles.descContainer}>
+        <Text style={styles.descText}>For </Text>
+        <Text style={styles.schoolNameText}>PRISMS </Text>
+        <Text style={styles.descText}>House Events</Text>
+      </View>
       {loggingIn ? (
         // Loading Image, same button size as Login button
         <Image

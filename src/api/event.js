@@ -42,3 +42,16 @@ export const getFilteredEvents = async (pageNum, limit) => {
     return { error: error.message || error };
   }
 };
+
+export const getEvent = async (id) => {
+  try {
+    const { data } = await client(`/event/${id}`);
+    return data;
+  } catch (error) {
+    const { response } = error;
+    if (response?.data) {
+      return response.data;
+    }
+    return { error: error.message || error };
+  }
+};
