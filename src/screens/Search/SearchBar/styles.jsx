@@ -30,12 +30,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     elevation: 10, // no idea abt the inner shadow
   },
-  insetShadow: {
-    // shadowRadius: 50,
-    // shadowOpacity: 0.75,
-    // shadowOffset: 0,
-    // color: "black",
-  },
   searchIcon: {
     left: horizontalScale(25),
     width: horizontalScale(24),

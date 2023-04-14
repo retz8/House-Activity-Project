@@ -4,7 +4,6 @@ import { loggedInUserContext } from "../../../hooks/UserContext";
 import { TouchableOpacity } from "react-native";
 import styles from "./styles";
 import { Image } from "react-native";
-import InsetShadow from "react-native-inset-shadow";
 
 export default function SearchBar() {
   const { loggedInUser, initialEvents } = useContext(loggedInUserContext);
