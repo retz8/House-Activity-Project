@@ -27,7 +27,7 @@ function Welcome({ navigation }) {
   } = useContext(loggedInUserContext);
   const [loggingIn, setLogginIn] = useState(false);
 
-  //console.log(EXPO_CLIENT_ID);
+  console.log(EXPO_CLIENT_ID);
   const [request, response, promptAsync] = Google.useAuthRequest({
     androidClientId: ANDROID_CLIENT_ID,
     iosClientId: IOS_CLIENT_ID,
@@ -41,7 +41,7 @@ function Welcome({ navigation }) {
       // user successfully logged in
       setLogginIn(true);
       setAccessToken(response.authentication.accessToken);
-      //console.log(`AccessToken: ${response.authentication.accessToken}`);
+      // console.log(`AccessToken: ${response.authentication.accessToken}`);
       const fetchUser = async () => {
         try {
           const googleResponse = await fetch(
@@ -54,7 +54,7 @@ function Welcome({ navigation }) {
           );
 
           const user = await googleResponse.json();
-          //console.log(user);
+          // console.log(user);
 
           fetch(API_URL + "/api/auth/create", {
             method: "POST",
