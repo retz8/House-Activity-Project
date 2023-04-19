@@ -24,12 +24,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    fontFamily: "BalooBhaijaan2-Medium",
+    fontFamily: "BalooBhaijaan2-ExtraBold",
   },
   backButtonContainer: {
     height: horizontalScale(55),
     width: "100%",
-    fontFamily: "BalooBhaijaan2-Medium",
   },
   backButton: {
     width: verticalScale(30),
@@ -39,7 +38,6 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "center",
     alignItems: "center",
-    fontFamily: "BalooBhaijaan2-Medium",
   },
   contentsContainer: {
     width: "100%",
@@ -48,7 +46,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderColor: "green",
     borderWidth: 1,
-    fontFamily: "BalooBhaijaan2-Medium",
+    fontFamily: "BalooBhaijaan2-ExtraBold",
   },
 });
 

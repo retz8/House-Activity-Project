@@ -62,6 +62,9 @@ export default function HouseProfile({ navigation, route }) {
         <View style={styles.contentsContainer}>
           <Text>{house.name}</Text>
           <Text>{house.point}</Text>
+          <Text>{leaders.faculty.displayName}</Text>
+          <Text>Student Leader</Text>
+          <Text>Members</Text>
         </View>
       ) : (
         <Text>Loading...</Text>
