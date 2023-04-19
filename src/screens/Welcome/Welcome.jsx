@@ -37,7 +37,7 @@ function Welcome({ navigation }) {
 
   // handle google login + backend request
   useEffect(() => {
-    // console.log(response);
+    console.log(response);
     if (response?.type === "success") {
       // user successfully logged in
       setLogginIn(true);
