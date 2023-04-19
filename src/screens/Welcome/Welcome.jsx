@@ -27,6 +27,7 @@ function Welcome({ navigation }) {
     setInitialFilteredEvents,
   } = useContext(loggedInUserContext);
   const [loggingIn, setLogginIn] = useState(false);
+  console.log(EXPO_CLIENT_ID)
 
   //console.log(EXPO_CLIENT_ID);
   const [request, response, promptAsync] = Google.useAuthRequest({
