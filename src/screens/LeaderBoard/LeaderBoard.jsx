@@ -67,7 +67,7 @@ export default function LeaderBoard({ navigation }) {
       <LeaderBoardItem />
       {/* 2. FlatList rendering all of the events summary */}
       <View style={styles.eventSummariesContainer}>
-        {/* // <FlatList
+        {/* { // <FlatList
           // //
           // // for data, pass filteredEvents
           // // for renderItem, render EventSummary component, don't pass onPress now
@@ -92,7 +92,7 @@ export default function LeaderBoard({ navigation }) {
           //   ) : null;
           // }}
 
-          // /> */}
+          // /> } */}
         <Text>FlatList...</Text>
       </View>
     </SafeAreaView>
