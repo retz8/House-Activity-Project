@@ -41,9 +41,13 @@ export default function Main({ navigation, route }) {
     setSliderEvents(sEvents);
   };
 
+  const fetchAllEventsMock = () => {
+    setAllEvents(initialEvents["data"]);
+  };
+
   useEffect(() => {
     //console.log(initialEvents);
-    fetchAllEvents();
+    fetchAllEventsMock();
   }, []);
 
   const renderItem = ({ item }) => {
@@ -77,12 +81,7 @@ export default function Main({ navigation, route }) {
           navigation.navigate("UserProfile", { user: loggedInUser })
         }
       />
-      <Button
-        title="go to Albemarle house profile"
-        onPress={() =>
-          navigation.navigate("HouseProfile", { houseName: "Albemarle" })
-        }
-      />
+
       <Button
         title="go to Lambert house profile"
         onPress={() =>

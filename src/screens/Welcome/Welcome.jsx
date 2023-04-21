@@ -28,95 +28,116 @@ function Welcome({ navigation }) {
   } = useContext(loggedInUserContext);
   const [loggingIn, setLogginIn] = useState(false);
 
-  console.log(EXPO_CLIENT_ID);
-  const [request, response, promptAsync] = Google.useAuthRequest({
-    androidClientId: ANDROID_CLIENT_ID,
-    iosClientId: IOS_CLIENT_ID,
-    expoClientId: EXPO_CLIENT_ID,
-  });
+  //console.log(EXPO_CLIENT_ID);
+  // const [request, response, promptAsync] = Google.useAuthRequest({
+  //   androidClientId: ANDROID_CLIENT_ID,
+  //   iosClientId: IOS_CLIENT_ID,
+  //   expoClientId: EXPO_CLIENT_ID,
+  // });
 
   // handle google login + backend request
-  useEffect(() => {
-    console.log(response);
-    if (response?.type === "success") {
-      // user successfully logged in
-      setLogginIn(true);
-      setAccessToken(response.authentication.accessToken);
-      // console.log(`AccessToken: ${response.authentication.accessToken}`);
-      const fetchUser = async () => {
-        try {
-          const googleResponse = await fetch(
-            "https://www.googleapis.com/userinfo/v2/me",
-            {
-              headers: {
-                Authorization: `Bearer ${response.authentication.accessToken}`,
-              },
-            }
-          );
+  // useEffect(() => {
+  //   // console.log(response);
+  //   if (response?.type === "success") {
+  //     // user successfully logged in
+  //     setLogginIn(true);
+  //     setAccessToken(response.authentication.accessToken);
+  //     //console.log(`AccessToken: ${response.authentication.accessToken}`);
+  //     const fetchUser = async () => {
+  //       try {
+  //         const googleResponse = await fetch(
+  //           "https://www.googleapis.com/userinfo/v2/me",
+  //           {
+  //             headers: {
+  //               Authorization: `Bearer ${response.authentication.accessToken}`,
+  //             },
+  //           }
+  //         );
 
-          const user = await googleResponse.json();
-          // console.log(user);
+          // const user = await googleResponse.json();
+          //console.log(user);
 
-          fetch(API_URL + "/api/auth/create", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${response.authentication.accessToken}`, // pass the access token in the Authorization header
-            },
-            body: JSON.stringify({
-              user,
-              // pass any additional data needed to create the user
-            }),
-          })
-            .then((response) => response.json())
-            .then(async (data) => {
-              setLoggedInUser(data);
+  //         fetch(API_URL + "/api/auth/create", {
+  //           method: "POST",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             Authorization: `Bearer ${response.authentication.accessToken}`, // pass the access token in the Authorization header
+  //           },
+  //           body: JSON.stringify({
+  //             user,
+  //             // pass any additional data needed to create the user
+  //           }),
+  //         })
+  //           .then((response) => response.json())
+  //           .then(async (data) => {
+  //             setLoggedInUser(data);
 
-              // pageNum: 0, limit: 5,
-              const { error, events } = await getEvents(0, 5);
-              if (error) return console.log(error);
-              setInitialEvents(events);
+  //             // pageNum: 0, limit: 5,
+  //             const { error, events } = await getEvents(0, 5);
+  //             if (error) return console.log(error);
+  //             setInitialEvents(events);
 
-              // pageNum: 0, limit: 5 - Leaderboard,
-              const { error: f_error, events: f_events } =
-                await getFilteredEvents(0, 5);
-              if (f_error) return console.log(error);
-              setInitialFilteredEvents(f_events);
+  //             // pageNum: 0, limit: 5 - Leaderboard,
+  //             const { error: f_error, events: f_events } =
+  //               await getFilteredEvents(0, 5);
+  //             if (f_error) return console.log(error);
+  //             setInitialFilteredEvents(f_events);
 
-              console.log("successfully fetched user!");
-              console.log("Navigating to main page...");
-              setLogginIn(false);
-              navigation.push("MainStack");
-            })
-            .catch((error) => {
-              console.log(error);
-              // handle errors
-              // fail to login
-            });
-        } catch (error) {
-          console.error(error);
-          // Add your own error handler here
-        }
-      };
-      fetchUser();
-    }
-  }, [response]);
+  //             console.log("successfully fetched user!");
+  //             console.log("Navigating to main page...");
+  //             setLogginIn(false);
+  //             navigation.push("MainStack");
+  //           })
+  //           .catch((error) => {
+  //             console.log(error);
+  //             // handle errors
+  //             // fail to login
+  //           });
+  //       } catch (error) {
+  //         console.error(error);
+  //         // Add your own error handler here
+  //       }
+  //     };
+  //     fetchUser();
+  //   }
+  // }, [response]);
 
   const handleLoginPress = async () => {
+    console.log("button pressed!");
     const { error, user } = await getUser("642ba16c1ed485ae197e6364");
     if (error) console.log(error);
     console.log(user);
     setLoggedInUser(user);
+    console.log("-----------------------------------------");
 
     // pageNum: 0, limit: 5,
     const { error: eError, events } = await getEvents(0, 5);
     if (eError) return console.log(error);
+    console.log(events);
     setInitialEvents(events);
+    console.log("-----------------------------------------");
 
     // pageNum: 0, limit: 5 - Leaderboard,
     const { error: f_error, events: f_events } = await getFilteredEvents(0, 5);
     if (f_error) return console.log(error);
+    console.log(f_events);
     setInitialFilteredEvents(f_events);
+    console.log("-----------------------------------------");
+
+    console.log("successfully fetched user!");
+    console.log("Navigating to main page...");
+    setLogginIn(false);
+    navigation.push("MainStack");
+  };
+
+  const handleLoginPressMock = async () => {
+    const mockUser = require("../../../data/user.json");
+    const mockEvents = require("../../../data/events");
+    const mockFilteredEvents = require("../../../data/filtered-events");
+
+    setLoggedInUser(mockUser);
+    setInitialEvents(mockEvents);
+    setInitialFilteredEvents(mockFilteredEvents);
 
     console.log("successfully fetched user!");
     console.log("Navigating to main page...");
@@ -151,7 +172,7 @@ function Welcome({ navigation }) {
         <ImageButton
           source={require("../../../assets/Welcome/loginButton.png")}
           style={styles.imageButton}
-          onPress={handleLoginPress}
+          onPress={handleLoginPressMock}
         />
       )}
     </SafeAreaView>
