@@ -7,8 +7,17 @@ import styles from "./styles";
 import SearchBar from "./SearchBar/SearchBar";
 import { FlashList } from "@shopify/flash-list";
 import Loading from "../../components/Loading/Loading";
+import { loggedInUserContext } from "../../hooks/UserContext";
 
 export default function Search({ navigation }) {
+  const {
+    setLoggedInUser,
+    setAccessToken,
+    initialEvents,
+    setInitialEvents,
+    initialFilteredEvents,
+    setInitialFilteredEvents,
+  } = useContext(loggedInUserContext);
   const [allEvents, setAllEvents] = useState();
 
   // remove navigation header
@@ -17,7 +26,7 @@ export default function Search({ navigation }) {
   }, [navigation]);
 
   useEffect(() => {
-    fetchAllEvents();
+    fetchAllEventsMock();
   }, []);
 
   const fetchAllEvents = async () => {
@@ -25,6 +34,10 @@ export default function Search({ navigation }) {
     if (error) console.log(error);
 
     setAllEvents(events);
+  };
+
+  const fetchAllEventsMock = () => {
+    setAllEvents(initialEvents["data"]);
   };
 
   const handlePreviewPress = async (id) => {

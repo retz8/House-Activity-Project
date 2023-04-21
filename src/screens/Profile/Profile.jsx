@@ -36,6 +36,14 @@ export default function Profile({ navigation }) {
 
     navigation.navigate("Welcome");
   };
+
+  const fakeLogout = () => {
+    console.log("Logout");
+    setIsLoggingOut(true);
+    setLoggedInUser(undefined);
+
+    navigation.navigate("Welcome");
+  };
   // -----------------------------------------------------
 
   return (
@@ -46,7 +54,7 @@ export default function Profile({ navigation }) {
         <View style={styles.container}>
           {/* 1. Logout Button: need styling */}
           <View style={styles.logoutButtonContainer}>
-            <TouchableOpacity style={styles.logoutButton} onPress={logout}>
+            <TouchableOpacity style={styles.logoutButton} onPress={fakeLogout}>
               <Text>Logout</Text>
             </TouchableOpacity>
           </View>

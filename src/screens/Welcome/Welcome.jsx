@@ -108,16 +108,36 @@ function Welcome({ navigation }) {
     if (error) console.log(error);
     console.log(user);
     setLoggedInUser(user);
+    console.log("-----------------------------------------");
 
     // pageNum: 0, limit: 5,
     const { error: eError, events } = await getEvents(0, 5);
     if (eError) return console.log(error);
+    console.log(events);
     setInitialEvents(events);
+    console.log("-----------------------------------------");
 
     // pageNum: 0, limit: 5 - Leaderboard,
     const { error: f_error, events: f_events } = await getFilteredEvents(0, 5);
     if (f_error) return console.log(error);
+    console.log(f_events);
     setInitialFilteredEvents(f_events);
+    console.log("-----------------------------------------");
+
+    console.log("successfully fetched user!");
+    console.log("Navigating to main page...");
+    setLogginIn(false);
+    navigation.push("MainStack");
+  };
+
+  const handleLoginPressMock = async () => {
+    const mockUser = require("../../../data/user.json");
+    const mockEvents = require("../../../data/events");
+    const mockFilteredEvents = require("../../../data/filtered-events");
+
+    setLoggedInUser(mockUser);
+    setInitialEvents(mockEvents);
+    setInitialFilteredEvents(mockFilteredEvents);
 
     console.log("successfully fetched user!");
     console.log("Navigating to main page...");
@@ -152,7 +172,7 @@ function Welcome({ navigation }) {
         <ImageButton
           source={require("../../../assets/Welcome/loginButton.png")}
           style={styles.imageButton}
-          onPress={handleLoginPress}
+          onPress={handleLoginPressMock}
         />
       )}
     </SafeAreaView>

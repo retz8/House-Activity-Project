@@ -43,8 +43,13 @@ export default function LeaderBoard({ navigation }) {
     setFilteredEvents([...filteredEvents, ...events]);
   };
 
+  const fetchMoreEventsMock = () => {
+    setReachedToEnd(true);
+  };
+
   useEffect(() => {
-    setFilteredEvents(initialFilteredEvents);
+    setFilteredEvents(initialFilteredEvents["data"]);
+    console.log("------------------------------");
     return () => {
       // cleanup whenever we unmount home component
       pageNo = 1;
@@ -70,7 +75,7 @@ export default function LeaderBoard({ navigation }) {
           // ** THE CODE BELOW IS TO FETCH MORE POSTS WHEN USER SCROLLS DOWN **
           // ** PLEASE LEAVE THE CODE BELOW, IF YOU THINK THE CODE BELOW HAS AN ERROR, **
           // ** LET JIOH KNOW **
-          // onEndReached={fetchMorePosts}
+          // onEndReached={fetchMoreEventsMock}
           // onEndReachedThreshold={0.1} // only call method when it compeltely ends
           // ListFooterComponent={() => {
           //   return reachedToEnd ? (
