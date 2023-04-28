@@ -20,11 +20,19 @@ fontFamily: "BalooBhaijaan2-Medium",
 */
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+    container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    imageContainer: {
+        flex: 1,
+        paddingTop: 150,
+    },
+    image: {
+        width: 110,
+        height: 110,
+    },
 });
 
 export default styles;

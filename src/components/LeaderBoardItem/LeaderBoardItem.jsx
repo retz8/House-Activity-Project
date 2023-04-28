@@ -11,10 +11,16 @@
 //     enMotto: house english Motto,
 //     color: house color,
 // }
-import { Text, styleSheet, View } from "react-native";
+import { Text, styleSheet, View, Image } from "react-native";
 import React, { Component, useState } from "react";
 import styles from "./styles";
 import { getHouseByName } from "../../api/house";
+
+const houseCrestUrl_Albemarle = "https://res.cloudinary.com/dlhqii3cq/image/upload/v1680716871/ozpjsbvlf5xcxgfczywj.png";
+const houseCrestUrl_Ettl = "https://res.cloudinary.com/dlhqii3cq/image/upload/v1680148633/lhb7dwaovqhcdprhqkir.jpg";
+const houseCrestUrl_Hobler = "https://res.cloudinary.com/dlhqii3cq/image/upload/v1680148610/eplnqunrpjdkttijvdqc.jpg";
+const houseCrestUrl_Lambert = "https://res.cloudinary.com/dlhqii3cq/image/upload/v1680148593/xmhmeifvnmkphom3fouq.jpg";
+
 
 export default function LeaderBoardItem() {
   const [ houses, setHouses ] = useState([]);
@@ -48,7 +54,7 @@ export default function LeaderBoardItem() {
      * 
      */
 
-    let housePoints_a = 1403, housePoints_l = 1451, housePoints_h = 1705, housePoints_e = 1285;
+    let housePoints_Albemarle = 1403, housePoints_Ettl = 1285, housePoints_Hobler = 1705, housePoints_Lambert = 1451;
 
     /* 
      * 
@@ -60,22 +66,34 @@ export default function LeaderBoardItem() {
 
     return (
         <View style={[styles.container, { flexDirection: 'row', }, ]}>
-        <View style={styles.container}>
+            <View style={styles.container}>
+                <View style={styles.imageContainer}>
+                    <Image source={{uri: houseCrestUrl_Albemarle}} style={styles.image} />
+                </View>
                 <Text>Albemarle</Text>
-                <Text>{housePoints_a}</Text>
-        </View>
-        <View style={styles.container}>
-                <Text>Lambert</Text>
-                <Text>{housePoints_l}</Text>
-        </View>
-        <View style={styles.container}>
-                <Text>Hobler</Text>
-                <Text>{housePoints_h}</Text>
-        </View>
-        <View style={styles.container}>
+                <Text>{housePoints_Albemarle}</Text>
+            </View>
+            <View style={styles.container}>
+                <View style={styles.imageContainer}>
+                    <Image source={{ uri: houseCrestUrl_Ettl }} style={styles.image} />
+                </View>
                 <Text>Ettl</Text>
-                <Text>{housePoints_e}</Text>
+                <Text>{housePoints_Ettl}</Text>
+            </View>
+            <View style={styles.container}>
+                <View style={styles.imageContainer}>
+                    <Image source={{ uri: houseCrestUrl_Hobler }} style={styles.image} />
+                </View>
+                <Text>Hobler</Text>
+                <Text>{housePoints_Hobler}</Text>
+            </View>
+            <View style={styles.container}>
+                <View style={styles.imageContainer}>
+                    <Image source={{ uri: houseCrestUrl_Lambert }} style={styles.image} />
+                </View>
+                <Text>Lambert</Text>
+                <Text>{housePoints_Lambert}</Text>
+            </View>
         </View>
-    </View>
   );
 }
