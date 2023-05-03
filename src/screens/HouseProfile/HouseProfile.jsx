@@ -2,7 +2,7 @@
 // house = current house [Object]
 // Please refer to "API Documentation" for more details to access values in house
 
-import { Button, Text, TouchableOpacity, View } from "react-native";
+import { Button, Image, Text, TouchableOpacity, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "./styles";
@@ -60,11 +60,19 @@ export default function HouseProfile({ navigation, route }) {
 
       {house && leaders && members ? (
         <View style={styles.contentsContainer}>
-          <Text>{house.name}</Text>
-          <Text>{house.point}</Text>
-          <Text>{leaders.faculty.displayName}</Text>
-          <Text>Student Leader</Text>
-          <Text>Members</Text>
+          <Image style={styles.crest} source={{uri: house.crest.url}} alt=""/>
+          <Text style={styles.houseName}>{house.name}</Text>
+          <Text style={styles.points}>{house.point}</Text>
+          <Text style={styles.labels}>Faculty Leader: {leaders.faculty[0].displayName}</Text>
+          <Text style={styles.labels}>Student Leader: {leaders.student[0].displayName}</Text>
+          <Text style={styles.labels}>Members: </Text>
+            {
+              members.map((member) => {
+                return (
+                  <Text style={styles.members} key={member.id}>{member.displayName}</Text>
+                )
+              })
+            }  
         </View>
       ) : (
         <Text>Loading...</Text>
