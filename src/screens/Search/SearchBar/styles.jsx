@@ -20,9 +20,11 @@ fontFamily: "BalooBhaijaan2-Medium",
 */
 
 const styles = StyleSheet.create({
-  container: {
+  container: {},
+  searchBar_unclicked: {
     flexDirection: "row",
     backgroundColor: "white",
+    marginTop: verticalScale(15),
     width: horizontalScale(335),
     height: verticalScale(50),
     alignSelf: "center",
@@ -30,16 +32,26 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     elevation: 10, // no idea abt the inner shadow
   },
-  insetShadow: {
-    // shadowRadius: 50,
-    // shadowOpacity: 0.75,
-    // shadowOffset: 0,
-    // color: "black",
+  searchBar_clicked: {
+    flexDirection: "row",
+    backgroundColor: "white",
+    marginTop: verticalScale(15),
+    width: horizontalScale(335),
+    height: verticalScale(50),
+    alignSelf: "center",
+    alignItems: "center",
+    borderRadius: 50,
+    elevation: 10, // no idea abt the inner shadow
   },
+
   searchIcon: {
     left: horizontalScale(25),
     width: horizontalScale(24),
     height: verticalScale(24),
+  },
+  crossIcon: {
+    right: horizontalScale(-70),
+    color: "gray",
   },
   searchBarText: {
     left: horizontalScale(36),

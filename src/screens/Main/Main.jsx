@@ -8,6 +8,7 @@ import { getAllEvents, getEvent } from "../../api/event";
 import EventPreview from "../../components/EventPreview/EventPreview";
 import { FlashList } from "@shopify/flash-list";
 import Loading from "../../components/Loading/Loading";
+import EventsList from "../Search/EventsList/EventsList";
 
 export default function Main({ navigation, route }) {
   const {
@@ -37,7 +38,7 @@ export default function Main({ navigation, route }) {
         sEvents.push(ev);
       }
     });
-    console.log(sEvents);
+    //console.log(sEvents);
     setSliderEvents(sEvents);
   };
 
@@ -93,20 +94,7 @@ export default function Main({ navigation, route }) {
       <Slider data={sliderEvents} />
 
       <View style={styles.listContainer}>
-        <FlashList
-          data={allEvents}
-          keyExtractor={(item) => item.id}
-          renderItem={renderItem}
-          estimatedItemSize={30}
-          ListEmptyComponent={() => (
-            <Text style={styles.noEventsText}>There's no events...</Text>
-          )}
-          ListFooterComponent={() => {
-            return (
-              <Text style={styles.noEventsText}>You reached to the end!</Text>
-            );
-          }}
-        />
+        <EventsList data={allEvents} navigation={navigation} />
       </View>
 
       {/* House Points Leaderboard */}

@@ -1,9 +1,5 @@
 import { StyleSheet } from "react-native";
-import {
-  fontPercentage,
-  horizontalScale,
-  verticalScale,
-} from "../../helpers/responsiveSize";
+import { fontPercentage, verticalScale } from "../../../helpers/responsiveSize";
 
 /*
 WHEN YOU ARE USING WIDHT / HEIGHT / FONTSIZE
@@ -20,21 +16,15 @@ fontFamily: "BalooBhaijaan2-Medium",
 */
 
 const styles = StyleSheet.create({
-  container: {
+  listContainer: {
     flex: 1,
-  },
-  searchPageTitle: {
-    top: verticalScale(13),
-    left: horizontalScale(30),
-    fontFamily: "BalooBhaijaan2-Bold",
-    color: "#4E3535",
-    fontSize: fontPercentage(30),
+    paddingTop: verticalScale(20),
   },
   noEventsText: {
+    textAlign: "center",
+    fontSize: fontPercentage(20),
+    color: "#4E3535",
     fontFamily: "BalooBhaijaan2-Bold",
-    fontSize: fontPercentage(15),
-    alignSelf: "center",
-    opacity: 0.5,
   },
 });
 

@@ -103,10 +103,10 @@ function Welcome({ navigation }) {
   // }, [response]);
 
   const handleLoginPress = async () => {
-    console.log("button pressed!");
+    //console.log("button pressed!");
     const { error, user } = await getUser("642ba16c1ed485ae197e6364");
     if (error) console.log(error);
-    console.log(user);
+    //console.log(user);
     setLoggedInUser(user);
 
     // pageNum: 0, limit: 5,
@@ -119,7 +119,7 @@ function Welcome({ navigation }) {
     if (f_error) return console.log(error);
     setInitialFilteredEvents(f_events);
 
-    console.log("successfully fetched user!");
+    //console.log("successfully fetched user!");
     console.log("Navigating to main page...");
     setLogginIn(false);
     navigation.push("MainStack");

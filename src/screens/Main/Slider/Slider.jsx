@@ -9,7 +9,7 @@ export default function Slider({ data }) {
 
   useEffect(() => {
     data.map((ev) => {
-      console.log(ev.title);
+      //console.log(ev.title);
     });
   }, [data.length]);
 
@@ -18,7 +18,7 @@ export default function Slider({ data }) {
       {/* {data.map((ev) => {
         return <Text style={styles.testText}>{ev.title}</Text>;
       })} */}
-      <Text>Hello World</Text>
+      <Text>Slider</Text>
     </View>
   );
 }
