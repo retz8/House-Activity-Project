@@ -18,6 +18,7 @@ import styles from "./styles";
 export default function LeaderBoardItem() {
   return (
     <View style={styles.container}>
+      <Text>LDfasdfad</Text>
       <Text>LeaderBoard</Text>
     </View>
   );

@@ -24,9 +24,15 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
     borderColor: "green",
     borderWidth: 1,
+  },
+
+  username: {
+    top: verticalScale(175),
+    fontFamily: "BalooBhaijaan2-Bold",
+    fontSize: fontPercentage(33),
+    color: "#4E3535",
   },
 });
 

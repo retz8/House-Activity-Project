@@ -11,7 +11,7 @@ export default function UserProfileCard({ user }) {
   // -----------------------------------------------------
   return (
     <SafeAreaView style={styles.container}>
-      <Text>{user.displayName}</Text>
+      <Text style={styles.username}>{user.displayName}</Text>
     </SafeAreaView>
   );
 }

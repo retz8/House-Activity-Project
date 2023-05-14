@@ -12,7 +12,7 @@ export default function ResultDisplay({ waiting, result }) {
       ) : (
         Object.keys(result).map((key) => {
           return (
-            <View style={styles.houseResult}>
+            <View style={styles.houseResult} key={key}>
               <View
                 style={{
                   ...styles.circle,

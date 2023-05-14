@@ -8,11 +8,6 @@ export default function ContentDisplay({ content }) {
   const source = {
     html: `${content}`,
   };
-
-  useEffect(() => {
-    console.log(content);
-  }, []);
-
   return (
     <RenderHtml contentWidth={400} baseStyle={styles.content} source={source} />
   );

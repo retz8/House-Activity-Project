@@ -18,7 +18,7 @@ fontFamily: "BalooBhaijaan2-Medium",
 const styles = StyleSheet.create({
   listContainer: {
     flex: 1,
-    paddingTop: verticalScale(20),
+    paddingTop: verticalScale(3),
   },
   noEventsText: {
     textAlign: "center",

@@ -1,4 +1,4 @@
-import { Button, Text, View } from "react-native";
+import { Button, ScrollView, Text, View } from "react-native";
 import React, { useEffect, useContext, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { loggedInUserContext } from "../../hooks/UserContext";
@@ -20,7 +20,7 @@ export default function Main({ navigation, route }) {
   } = useContext(loggedInUserContext);
 
   const [allEvents, setAllEvents] = useState();
-  const [sliderEvents, setSliderEvents] = useState([]);
+  const [sliderEvents, setSliderEvents] = useState();
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
@@ -47,17 +47,6 @@ export default function Main({ navigation, route }) {
     fetchAllEvents();
   }, []);
 
-  const renderItem = ({ item }) => {
-    return (
-      <View style={styles.renderItemContainer}>
-        <EventPreview
-          event={item}
-          onPress={() => handlePreviewPress(item.id)}
-        />
-      </View>
-    );
-  };
-
   const handlePreviewPress = async (id) => {
     const { error, event } = await getEvent(id);
     if (error) console.log(error);
@@ -70,36 +59,40 @@ export default function Main({ navigation, route }) {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.testText}>This is a main page</Text>
-      <Button
-        title="go to user profile"
-        onPress={() =>
-          navigation.navigate("UserProfile", { user: loggedInUser })
-        }
-      />
-      <Button
-        title="go to Albemarle house profile"
-        onPress={() =>
-          navigation.navigate("HouseProfile", { houseName: "Albemarle" })
-        }
-      />
-      <Button
-        title="go to Lambert house profile"
-        onPress={() =>
-          navigation.navigate("HouseProfile", { houseName: "Lambert" })
-        }
-      />
+    <ScrollView>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.title}>Hello!</Text>
 
-      <Slider data={sliderEvents} />
+        {/* Please Uncomment below when you add to repo */}
 
-      <View style={styles.listContainer}>
-        <EventsList data={allEvents} navigation={navigation} />
-      </View>
+        <Button
+          title="go to user profile"
+          onPress={() =>
+            navigation.navigate("UserProfile", { user: loggedInUser })
+          }
+        />
+        <Button
+          title="go to Albemarle house profile"
+          onPress={() =>
+            navigation.navigate("HouseProfile", { houseName: "Albemarle" })
+          }
+        />
+        <Button
+          title="go to Lambert house profile"
+          onPress={() =>
+            navigation.navigate("HouseProfile", { houseName: "Lambert" })
+          }
+        />
+        {sliderEvents && (
+          <View style={styles.sliderContainer}>
+            <Slider data={sliderEvents} />
+          </View>
+        )}
 
-      {/* House Points Leaderboard */}
-
-      {/* Events Preview FlatList, use initialEvents and fetchMoreEvents()*/}
-    </SafeAreaView>
+        <View style={styles.listContainer}>
+          <EventsList data={allEvents} navigation={navigation} />
+        </View>
+      </SafeAreaView>
+    </ScrollView>
   );
 }
