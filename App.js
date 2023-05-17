@@ -6,6 +6,7 @@ import UserContext from "./src/hooks/UserContext";
 import { useFonts } from "expo-font";
 import UserProfile from "./src/components/UserProfile/UserProfile";
 import HouseProfile from "./src/screens/HouseProfile/HouseProfile";
+import EventPage from "./src/components/EventPage/EventPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,7 @@ export default function App() {
           <Stack.Screen name="MainStack" component={MainStack} />
           <Stack.Screen name="HouseProfile" component={HouseProfile} />
           <Stack.Screen name="UserProfile" component={UserProfile} />
+          <Stack.Screen name="EventPage" component={EventPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </UserContext>

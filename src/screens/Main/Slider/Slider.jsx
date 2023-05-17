@@ -9,7 +9,7 @@ export default function Slider({ data }) {
 
   useEffect(() => {
     data.map((ev) => {
-      // console.log(ev.title);
+      console.log(ev.title);
     });
   }, [data.length]);
 

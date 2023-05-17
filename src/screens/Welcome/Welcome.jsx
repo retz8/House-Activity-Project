@@ -12,6 +12,7 @@ import axios from "axios";
 import { Text } from "react-native";
 import { ANDROID_CLIENT_ID, IOS_CLIENT_ID, EXPO_CLIENT_ID } from "@env";
 import { getEvents, getFilteredEvents } from "../../api/event";
+import { getUser } from "../../api/user";
 
 WebBrowser.maybeCompleteAuthSession();
 LogBox.ignoreAllLogs();
@@ -54,7 +55,7 @@ function Welcome({ navigation }) {
           );
 
           const user = await googleResponse.json();
-          console.log(user);
+          //console.log(user);
 
           fetch(API_URL + "/api/auth/create", {
             method: "POST",
@@ -101,11 +102,40 @@ function Welcome({ navigation }) {
     }
   }, [response]);
 
+  const handleLoginPress = async () => {
+    console.log("button pressed!");
+    const { error, user } = await getUser("642ba16c1ed485ae197e6364");
+    if (error) console.log(error);
+    console.log(user);
+    setLoggedInUser(user);
+
+    // pageNum: 0, limit: 5,
+    const { error: eError, events } = await getEvents(0, 5);
+    if (eError) return console.log(error);
+    setInitialEvents(events);
+
+    // pageNum: 0, limit: 5 - Leaderboard,
+    const { error: f_error, events: f_events } = await getFilteredEvents(0, 5);
+    if (f_error) return console.log(error);
+    setInitialFilteredEvents(f_events);
+
+    console.log("successfully fetched user!");
+    console.log("Navigating to main page...");
+    setLogginIn(false);
+    navigation.push("MainStack");
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       {/* Login */}
 
-      <Text>Hello World</Text>
+      <Text style={styles.welcomeText}>Welcome to</Text>
+      <Text style={styles.appNameText}>Pig Says Oink!</Text>
+      <View style={styles.descContainer}>
+        <Text style={styles.descText}>For </Text>
+        <Text style={styles.schoolNameText}>PRISMS </Text>
+        <Text style={styles.descText}>House Events</Text>
+      </View>
       {loggingIn ? (
         // Loading Image, same button size as Login button
         <Image
@@ -114,10 +144,15 @@ function Welcome({ navigation }) {
         />
       ) : (
         // Login Image button
+        // <ImageButton
+        //   source={require("../../../assets/Welcome/loginButton.png")}
+        //   style={styles.imageButton}
+        //   onPress={() => promptAsync({ showInRecents: false })}
+        // />
         <ImageButton
           source={require("../../../assets/Welcome/loginButton.png")}
           style={styles.imageButton}
-          onPress={() => promptAsync({ showInRecents: false })}
+          onPress={handleLoginPress}
         />
       )}
     </SafeAreaView>
