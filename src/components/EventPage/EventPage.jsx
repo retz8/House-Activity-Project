@@ -32,21 +32,21 @@ export default function EventPage({ navigation, route }) {
     const { user, error } = await getUser(event.author);
     if (error) {
       console.log(error);
-      return;
     }
     setAuthor(user);
   };
   const fetchHost = async () => {
-    const { user, error } = await getUser(event.host);
+    const { user, error } = await getUser(event.host[0]);
+    // console.log(event.host[0]);
+    // console.log(user);
     if (error) {
       console.log(error);
-      return;
     }
+
     setHost(user);
   };
 
   useEffect(() => {
-    //console.log(event);
     fetchAuthor();
     fetchHost();
   }, []);
@@ -66,7 +66,6 @@ export default function EventPage({ navigation, route }) {
             style={styles.backButton}
             onPress={() => navigation.pop()}
           />
-          {/* 버튼 그림자 추가해야함 */}
         </View>
         {event.upcoming && (
           <View style={styles.markContainer}>
@@ -78,9 +77,9 @@ export default function EventPage({ navigation, route }) {
       <ScrollView style={styles.contentContainer}>
         <Text style={styles.title}>{event.title}</Text>
 
-        {event.upcoming &&
-          event.signUpLink &&
-          !event.isForAll(<SignUpButton link={event.signUpLink} />)}
+        {event.upcoming && event.signUpLink && event.isForAll === false && (
+          <SignUpButton link={event.signUpLink} />
+        )}
 
         <BaseInfo
           navigation={navigation}

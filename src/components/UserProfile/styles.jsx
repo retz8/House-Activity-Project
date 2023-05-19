@@ -21,14 +21,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
-  contentsContainer: {
-    width: "100%",
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#F5F4F3",
-  },
 });
 
 // fontFamily: "BalooBhaijaan2-Bold",

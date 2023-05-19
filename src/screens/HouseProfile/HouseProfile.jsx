@@ -18,6 +18,7 @@ import ImageButton from "../../components/ImageButton/ImageButton";
 import BaseHouseInfo from "./BaseHouseInfo/BaseHouseInfo";
 import HouseUsers from "./HouseUsers/HouseUsers";
 import { getHouseColor } from "../../helpers/houseColors";
+import Loading from "../../components/Loading/Loading";
 
 export default function HouseProfile({ navigation, route }) {
   const { houseName } = route.params;
@@ -89,7 +90,7 @@ export default function HouseProfile({ navigation, route }) {
             </View>
           </View>
         ) : (
-          <Text>Loading...</Text>
+          <Loading />
         )}
       </SafeAreaView>
     </ScrollView>

@@ -22,21 +22,23 @@ fontFamily: "BalooBhaijaan2-Medium",
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: "100%",
-    // marginTop: '34.48%',
-    backgroundColor: "#F5F4F3",
-    // backgroundColor: 'gray',
     flex: 1,
     alignItems: "center",
-    // width: horizontalScale(275), // 275 px is the exact width on the Figma file
-    // left: horizontalScale(55),
-    // height: verticalScale(50), // 50px is the exact width on the Figma file
-    // top: verticalScale(10),
-
-    // justifyContent: "center",
-    // borderColor: "green",
-    // borderWidth: 1,
+    justifyContent: "center",
+    backgroundColor: "#F5F4F3",
   },
+
+  baseUserInfo: {
+    height: verticalScale(200),
+    width: "100%",
+  },
+
+  detailedUser: {
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
+  },
+
   username: {
     // margins
     // marginTop: '34.48%',

@@ -5,29 +5,15 @@ import {
   verticalScale,
 } from "../../../helpers/responsiveSize";
 
-/*
-WHEN YOU ARE USING WIDTH / HEIGHT / FONTSIZE
-ex) 
-width: verticalScale(275), // for responsive design, convert the size fitting into emulator
-height: horizontalScale(50), // horizontal/vertialScale(pixel size on Figma file)
-fontSize: fontPercentage(18), // 18: 18px
-*/
-
-/*
-TO USE SAME FONT IN FIGMA FILE
-ex)
-fontFamily: "BalooBhaijaan2-Medium",
-*/
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFFFFF",
-    flex: 1,
+
     width: horizontalScale(315),
-    marginVertical: verticalScale(20),
+    marginBottom: verticalScale(20),
     borderRadius: 25,
     paddingHorizontal: horizontalScale(20),
-    paddingTop: verticalScale(20),
+    paddingVertical: verticalScale(10),
   },
   textContainer: {
     flexDirection: "row",
@@ -40,14 +26,27 @@ const styles = StyleSheet.create({
     color: "#4E3535",
     fontFamily: "BalooBhaijaan2-Bold",
   },
-  membersContainer: {
-    overflow: "scroll",
+  text: {
+    fontSize: fontPercentage(14),
+    fontFamily: "BalooBhaijaan2-Bold",
+    color: "#504545",
+    opacity: 0.65,
+    maxWidth: verticalScale(170),
+    textAlign: "right",
   },
-  display: {
-    paddingBottom: verticalScale(5),
+
+  houseText: {
     flex: 1,
-    alignItems: "flex-end",
+    flexDirection: "row",
+  },
+  houseColorIcon: {
+    height: verticalScale(20),
+    width: horizontalScale(20),
+    borderRadius: horizontalScale(20) / 2,
+    marginRight: horizontalScale(5),
   },
 });
+
+// fontFamily: "BalooBhaijaan2-Bold",
 
 export default styles;

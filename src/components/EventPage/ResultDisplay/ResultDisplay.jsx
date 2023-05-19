@@ -8,7 +8,7 @@ export default function ResultDisplay({ waiting, result }) {
     <View style={styles.container}>
       <Text style={styles.eventLabel}>Results: </Text>
       {waiting ? (
-        <Text>Waiting for result...</Text>
+        <Text style={styles.waitingText}>Waiting for result...</Text>
       ) : (
         Object.keys(result).map((key) => {
           return (
