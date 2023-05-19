@@ -2,12 +2,22 @@
 // house = current house [Object]
 // Please refer to "API Documentation" for more details to access values in house
 
-import { Button, Image, Text, TouchableOpacity, View } from "react-native";
+import {
+  Button,
+  Image,
+  Text,
+  TouchableOpacity,
+  View,
+  ScrollView,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "./styles";
 import { getHouseByName, getLeaders, getMembers } from "../../api/house";
 import ImageButton from "../../components/ImageButton/ImageButton";
+import BaseHouseInfo from "./BaseHouseInfo/BaseHouseInfo";
+import HouseUsers from "./HouseUsers/HouseUsers";
+import { getHouseColor } from "../../helpers/houseColors";
 
 export default function HouseProfile({ navigation, route }) {
   const { houseName } = route.params;
@@ -48,35 +58,40 @@ export default function HouseProfile({ navigation, route }) {
   // -----------------------------------------------------
 
   return (
-    <SafeAreaView style={styles.container}>
-      {/* You don't need to worry about this go back button */}
-      <View style={styles.backButtonContainer}>
-        <ImageButton
-          source={require("../../../assets/HouseProfile/backButton.png")}
-          style={styles.backButton}
-          onPress={() => navigation.pop()}
-        />
-      </View>
-
-      {house && leaders && members ? (
-        <View style={styles.contentsContainer}>
-          <Image style={styles.crest} source={{uri: house.crest.url}} alt=""/>
-          <Text style={styles.houseName}>{house.name}</Text>
-          <Text style={styles.points}>{house.point}</Text>
-          <Text style={styles.labels}>Faculty Leader: {leaders.faculty[0].displayName}</Text>
-          <Text style={styles.labels}>Student Leader: {leaders.student[0].displayName}</Text>
-          <Text style={styles.labels}>Members: </Text>
-            {
-              members.map((member) => {
-                return (
-                  <Text style={styles.members} key={member.id}>{member.displayName}</Text>
-                )
-              })
-            }  
+    <ScrollView>
+      <SafeAreaView style={styles.container}>
+        {/* You don't need to worry about this go back button */}
+        <View style={styles.backButtonContainer}>
+          <ImageButton
+            source={require("../../../assets/HouseProfile/backButton.png")}
+            style={styles.backButton}
+            onPress={() => navigation.pop()}
+          />
         </View>
-      ) : (
-        <Text>Loading...</Text>
-      )}
-    </SafeAreaView>
+
+        {house && leaders && members ? (
+          <View style={styles.contentsContainer}>
+            <View style={styles.baseHouseInfo}>
+              <BaseHouseInfo
+                crest={house.crest}
+                name={house.name}
+                point={house.point}
+                color={getHouseColor(house.name)}
+              />
+            </View>
+
+            <View style={styles.houseUsers}>
+              <HouseUsers
+                navigation={navigation}
+                leaders={leaders}
+                members={members}
+              />
+            </View>
+          </View>
+        ) : (
+          <Text>Loading...</Text>
+        )}
+      </SafeAreaView>
+    </ScrollView>
   );
 }
