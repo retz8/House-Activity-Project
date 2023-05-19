@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   divider: {
     borderColor: "#4E3535",
     opacity: 0.25,
-    borderWidth: 1,
+    borderWidth: 0.75,
   },
 });
 

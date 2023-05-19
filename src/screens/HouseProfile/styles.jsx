@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   backButton: {
     width: horizontalScale(40),
     height: verticalScale(40),
-    left: horizontalScale(45),
+    left: horizontalScale(25),
     top: verticalScale(15),
     resizeMode: "cover",
     justifyContent: "center",

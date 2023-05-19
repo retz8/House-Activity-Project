@@ -44,7 +44,7 @@ export default function HouseUsers({ navigation, leaders, members }) {
         <Text style={styles.label}>Members</Text>
         <View style={styles.membersContainer}>
           {members.map((user) => (
-            <View style={styles.display}>
+            <View key={user.id} style={styles.display}>
               <UsernameDisplay
                 name={user.displayName}
                 profile={user.profilePic.url}
