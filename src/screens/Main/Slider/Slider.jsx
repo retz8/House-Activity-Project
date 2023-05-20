@@ -4,8 +4,9 @@ import styles from "./styles";
 import { loggedInUserContext } from "../../../hooks/UserContext";
 import SliderItem from "../SliderItem/SliderItem";
 import Pagination from "../Pagination/Pagination";
+import { getEvent } from "../../../api/event";
 
-export default function Slider({ data }) {
+export default function Slider({ navigation, data }) {
   const { loggedInUser, accessToken, setAccessToken, setLoggedInUser } =
     useContext(loggedInUserContext);
   const [index, setIndex] = useState(0);
@@ -55,6 +56,7 @@ export default function Slider({ data }) {
           ]}
           renderItem={({ item }) => (
             <SliderItem
+              navigation={navigation}
               item={item}
               status={
                 item.upcoming

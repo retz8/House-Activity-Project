@@ -1,11 +1,12 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useEffect } from "react";
 import LeaderBoardItem from "../../../components/LeaderBoardItem/LeaderBoardItem";
 import styles from "./styles";
 import StatusDisplay from "../StatusDisplay/StatusDisplay";
+import { getEvent } from "../../../api/event";
 
-export default function SliderItem({ item, status }) {
-  const { thumbnail, title, startDate, endDate } = item;
+export default function SliderItem({ navigation, item, status }) {
+  const { thumbnail, title, startDate, endDate, id } = item;
 
   const dateToDurationString = (dateString) => {
     const date = new Date(dateString);
@@ -26,7 +27,12 @@ export default function SliderItem({ item, status }) {
       : `${startDateString} ~ ${endDateString}`;
   };
 
-  useEffect(() => {}, []);
+  const handlePreviewPress = async (id) => {
+    const { error, event } = await getEvent(id);
+    if (error) console.log(error);
+
+    navigation.navigate("EventPage", { event: event });
+  };
 
   if (item?.type === "Leaderboard") {
     return (
@@ -38,11 +44,13 @@ export default function SliderItem({ item, status }) {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={{ uri: thumbnail.url }}
-        resizeMode="contain"
-        style={styles.thumbnail}
-      />
+      <TouchableOpacity onPress={() => handlePreviewPress(id)}>
+        <Image
+          source={{ uri: thumbnail.url }}
+          resizeMode="contain"
+          style={styles.thumbnail}
+        />
+      </TouchableOpacity>
 
       <StatusDisplay status={status} />
 

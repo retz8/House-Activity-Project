@@ -47,13 +47,6 @@ export default function Main({ navigation, route }) {
     fetchAllEvents();
   }, []);
 
-  const handlePreviewPress = async (id) => {
-    const { error, event } = await getEvent(id);
-    if (error) console.log(error);
-
-    navigation.navigate("EventPage", { event: event });
-  };
-
   if (!allEvents) {
     return <Loading />;
   }
@@ -85,7 +78,7 @@ export default function Main({ navigation, route }) {
         />
         {sliderEvents && (
           <View style={styles.sliderContainer}>
-            <Slider data={sliderEvents} />
+            <Slider navigation={navigation} data={sliderEvents} />
           </View>
         )}
 
