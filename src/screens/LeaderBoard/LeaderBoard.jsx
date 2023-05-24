@@ -64,7 +64,7 @@ export default function LeaderBoard({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       {/* 1. House Points Visualization (Leaderboard Four houses) */}
-      <LeaderBoardItem />
+          <LeaderBoardItem navigation={navigation}/>
       {/* 2. FlatList rendering all of the events summary */}
       <View style={styles.eventSummariesContainer}>
         {/* { // <FlatList
