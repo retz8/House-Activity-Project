@@ -62,37 +62,23 @@ export default function LeaderBoard({ navigation }) {
     return <Loading />;
   }
 
-    const DATA = [
-        {},
-        {},
-        {},
-        {},
-    ];
-    const Item = ({ title }: ItemProps) => (
-        <View style={styles.item}>
-            <Text style={styles.title}>{title}</Text>
-        </View>
-    );
+  const Item = ({ title }) => (
+    <View style={styles.item}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
   return (
-      <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* 1. House Points Visualization (Leaderboard Four houses) */}
-          <LeaderBoardItem navigation={navigation}/>
+      <LeaderBoardItem navigation={navigation} />
       {/* 2. FlatList rendering all of the events summary */}
-          <View style={styles.eventSummariesContainer}>
-              {/* { //<FlatList
+      <View style={styles.eventSummariesContainer}>
+        {/* { //<FlatList
           // //
           // // for data, pass filteredEvents
           // // for renderItem, render EventSummary component, don't pass onPress now
           */
-                  <FlatList
-                      data={DATA}
-                      renderItem={({ item }) => <EventSummary event={item} onPress={() => { }} />}
-                      keyExtractor={item => item.id}
-                  />
-
-                  
-
-          /*
+        /*
           // ** THE CODE BELOW IS TO FETCH MORE POSTS WHEN USER SCROLLS DOWN **
           // ** PLEASE LEAVE THE CODE BELOW, IF YOU THINK THE CODE BELOW HAS AN ERROR, **
           // ** LET JIOH KNOW **
@@ -114,7 +100,7 @@ export default function LeaderBoard({ navigation }) {
           // }}
 
           // /> } */}
-          </View>
+      </View>
     </SafeAreaView>
   );
 }

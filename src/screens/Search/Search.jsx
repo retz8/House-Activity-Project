@@ -8,14 +8,6 @@ import Loading from "../../components/Loading/Loading";
 import EventsList from "./EventsList/EventsList";
 
 export default function Search({ navigation }) {
-  const {
-    setLoggedInUser,
-    setAccessToken,
-    initialEvents,
-    setInitialEvents,
-    initialFilteredEvents,
-    setInitialFilteredEvents,
-  } = useContext(loggedInUserContext);
   const [allEvents, setAllEvents] = useState();
   const [searchPhrase, setSearchPhrase] = useState("");
   const [clicked, setClicked] = useState(false);

@@ -42,13 +42,9 @@ export default function Main({ navigation, route }) {
     setSliderEvents(sEvents);
   };
 
-  const fetchAllEventsMock = () => {
-    setAllEvents(initialEvents["data"]);
-  };
-
   useEffect(() => {
     //console.log(initialEvents);
-    fetchAllEventsMock();
+    fetchAllEvents();
   }, []);
 
   if (!allEvents) {

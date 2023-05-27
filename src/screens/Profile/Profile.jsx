@@ -38,14 +38,6 @@ export default function Profile({ navigation }) {
     navigation.navigate("Welcome");
   };
 
-  const fakeLogout = () => {
-    console.log("Logout");
-    setIsLoggingOut(true);
-    setLoggedInUser(undefined);
-
-    navigation.navigate("Welcome");
-  };
-
   // -----------------------------------------------------
 
   return (
