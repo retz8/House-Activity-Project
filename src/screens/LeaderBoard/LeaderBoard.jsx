@@ -4,7 +4,7 @@
 // filteredEvents: all past & result posted events (array of objects)
 // please see "API Documentation" for more details to access values in filteredEvents
 
-import { Text, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./styles";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -12,6 +12,7 @@ import LeaderBoardItem from "../../components/LeaderBoardItem/LeaderBoardItem";
 import { getFilteredEvents } from "../../api/event";
 import { loggedInUserContext } from "../../hooks/UserContext";
 import Loading from "../../components/Loading/Loading";
+import EventSummary from "./EventSummary/EventSummary";
 
 let pageNum = 1;
 const limit = 5;
@@ -61,17 +62,37 @@ export default function LeaderBoard({ navigation }) {
     return <Loading />;
   }
 
+    const DATA = [
+        {},
+        {},
+        {},
+        {},
+    ];
+    const Item = ({ title }: ItemProps) => (
+        <View style={styles.item}>
+            <Text style={styles.title}>{title}</Text>
+        </View>
+    );
   return (
-    <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container}>
       {/* 1. House Points Visualization (Leaderboard Four houses) */}
           <LeaderBoardItem navigation={navigation}/>
       {/* 2. FlatList rendering all of the events summary */}
-      <View style={styles.eventSummariesContainer}>
-        {/* { // <FlatList
+          <View style={styles.eventSummariesContainer}>
+              {/* { //<FlatList
           // //
           // // for data, pass filteredEvents
           // // for renderItem, render EventSummary component, don't pass onPress now
+          */
+                  <FlatList
+                      data={DATA}
+                      renderItem={({ item }) => <EventSummary event={item} onPress={() => { }} />}
+                      keyExtractor={item => item.id}
+                  />
 
+                  
+
+          /*
           // ** THE CODE BELOW IS TO FETCH MORE POSTS WHEN USER SCROLLS DOWN **
           // ** PLEASE LEAVE THE CODE BELOW, IF YOU THINK THE CODE BELOW HAS AN ERROR, **
           // ** LET JIOH KNOW **
@@ -93,8 +114,7 @@ export default function LeaderBoard({ navigation }) {
           // }}
 
           // /> } */}
-        <Text>FlatList...</Text>
-      </View>
+          </View>
     </SafeAreaView>
   );
 }
