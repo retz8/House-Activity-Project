@@ -1,6 +1,6 @@
 // Logged In User Profile
 
-import { Button, Text, TouchableOpacity, View } from "react-native";
+import { Button, Text, TouchableOpacity, View, ScrollView } from "react-native";
 import React, { Component, useContext, useEffect, useState } from "react";
 import * as AuthSession from "expo-auth-session";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -8,6 +8,7 @@ import { loggedInUserContext } from "../../hooks/UserContext";
 import styles from "./styles";
 import UserProfileCard from "../../components/UserProfileCard/UserProfileCard";
 import { getUser } from "../../api/user";
+import ImageButton from "../../components/ImageButton/ImageButton";
 
 export default function Profile({ navigation }) {
   const { loggedInUser, accessToken, setAccessToken, setLoggedInUser } =
@@ -20,7 +21,7 @@ export default function Profile({ navigation }) {
   // Logout Logic ----------------------------------------
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
-  const logout = async () => {
+  const signout = async () => {
     await AuthSession.revokeAsync(
       {
         token: accessToken,
@@ -44,25 +45,26 @@ export default function Profile({ navigation }) {
 
     navigation.navigate("Welcome");
   };
+
   // -----------------------------------------------------
 
   return (
-    <SafeAreaView style={styles.container}>
-      {isLoggingOut ? (
-        <Text>Logging out...</Text>
-      ) : (
-        <View style={styles.container}>
-          {/* 1. Logout Button: need styling */}
-          <View style={styles.logoutButtonContainer}>
-            <TouchableOpacity style={styles.logoutButton} onPress={fakeLogout}>
-              <Text>Logout</Text>
-            </TouchableOpacity>
+    <ScrollView>
+      <SafeAreaView style={styles.container}>
+        {isLoggingOut ? (
+          <Text>Signing out...</Text>
+        ) : (
+          <View style={styles.contentContainer}>
+            <UserProfileCard navigation={navigation} user={loggedInUser} />
+            <ImageButton
+              source={require("../../../assets/Profile/signoutButton.png")}
+              style={styles.signoutButton}
+              onPress={() => {}}
+              // onPress={signout}
+            />
           </View>
-
-          {/* 2. UserProfileCard: user = loggedInUser */}
-          <UserProfileCard user={loggedInUser} />
-        </View>
-      )}
-    </SafeAreaView>
+        )}
+      </SafeAreaView>
+    </ScrollView>
   );
 }

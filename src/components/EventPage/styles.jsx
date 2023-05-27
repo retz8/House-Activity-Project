@@ -4,6 +4,7 @@ import {
   horizontalScale,
   verticalScale,
 } from "../../helpers/responsiveSize";
+import { Platform } from "react-native";
 
 /*
 WHEN YOU ARE USING WIDHT / HEIGHT / FONTSIZE
@@ -21,25 +22,50 @@ fontFamily: "BalooBhaijaan2-Medium",
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    borderColor: "green",
-    borderWidth: 1,
   },
-  backButtonContainer: {
-    height: horizontalScale(55),
-    width: "100%",
+
+  thumbnailContainer: {
+    position: "relative",
+    height: verticalScale(170),
+    elevation: 20,
+  },
+  thumbnail: {
+    width: horizontalScale(375),
+    height: verticalScale(170),
+    resizeMode: "cover",
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+  },
+  buttonContainer: {
+    position: "absolute",
+    top: verticalScale(13),
+    left: horizontalScale(12),
   },
   backButton: {
-    width: verticalScale(30), // for responsive design, convert the size fitting into emulator
-    height: horizontalScale(30), // horizontal/vertialScale(pixel size on Figma file)
-    left: horizontalScale(45),
-    top: verticalScale(18.32),
+    width: horizontalScale(50),
+    height: verticalScale(50),
     resizeMode: "cover",
-    justifyContent: "center",
-    alignItems: "center",
+    borderRadius: 15,
+  },
+  markContainer: {
+    position: "absolute",
+    bottom: 0,
+    left: horizontalScale(257),
+  },
+
+  contentContainer: {
+    flex: 1,
+    overflow: "hidden",
+    paddingHorizontal: horizontalScale(20),
+  },
+
+  title: {
+    paddingTop: verticalScale(15),
+    fontSize: fontPercentage(30),
+    fontFamily: "BalooBhaijaan2-Bold",
+    color: "#4E3535",
+    lineHeight: verticalScale(40),
   },
 });
 

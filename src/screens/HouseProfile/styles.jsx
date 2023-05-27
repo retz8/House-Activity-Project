@@ -26,14 +26,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   backButtonContainer: {
-    height: horizontalScale(55),
+    height: verticalScale(55),
     width: "100%",
   },
   backButton: {
-    width: verticalScale(30),
-    height: horizontalScale(30),
-    left: horizontalScale(45),
-    top: verticalScale(18.32),
+    width: horizontalScale(40),
+    height: verticalScale(40),
+    left: horizontalScale(25),
+    top: verticalScale(15),
     resizeMode: "cover",
     justifyContent: "center",
     alignItems: "center",
@@ -43,8 +43,18 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    borderColor: "green",
-    borderWidth: 1,
+    backgroundColor: "#F5F4F3",
+  },
+
+  baseHouseInfo: {
+    height: verticalScale(250),
+    width: "100%",
+  },
+
+  houseUsers: {
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
   },
 });
 
