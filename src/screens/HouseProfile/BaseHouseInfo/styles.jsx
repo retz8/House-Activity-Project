@@ -10,6 +10,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: -verticalScale(15),
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
     width: horizontalScale(170),
     alignSelf: "center",
   },
@@ -20,22 +22,22 @@ const styles = StyleSheet.create({
   crest: {
     height: "100%",
     width: "100%",
-    resizeMode: "cover",
+    resizeMode: "contain",
     alignSelf: "center",
   },
 
   houseName: {
-    textAlign: "center",
+    position: "absolute",
+    top: verticalScale(170),
     fontFamily: "BalooBhaijaan2-ExtraBold",
     fontSize: fontPercentage(30),
-    lineHeight: verticalScale(45),
     color: "#4E3535",
   },
   points: {
-    textAlign: "center",
+    position: "absolute",
+    top: verticalScale(200),
     fontFamily: "BalooBhaijaan2-ExtraBold",
     fontSize: fontPercentage(50),
-    lineHeight: verticalScale(65),
   },
 });
 

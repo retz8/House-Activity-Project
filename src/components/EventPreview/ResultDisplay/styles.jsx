@@ -10,22 +10,24 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
     flexDirection: "row",
+    alignItems: "center",
   },
   content: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
+    justifyContent: "flex-start",
   },
   ball: {
-    width: horizontalScale(20),
     height: verticalScale(20),
-    borderRadius: horizontalScale(10),
+    aspectRatio: 1,
+    borderRadius: verticalScale(10),
     marginRight: horizontalScale(5),
   },
   text: {
     fontFamily: "BalooBhaijaan2-Bold",
     fontSize: fontPercentage(18),
+    color: "#4E3535",
   },
 });
 

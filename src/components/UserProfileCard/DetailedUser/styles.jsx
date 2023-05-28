@@ -49,6 +49,8 @@ const styles = StyleSheet.create({
   houseText: {
     flex: 1,
     flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-end",
   },
   houseColorIcon: {
     height: verticalScale(20),

@@ -8,16 +8,16 @@ import {
 export function getImageStyle(size = "medium") {
   return size === "medium"
     ? {
-        borderRadius: verticalScale(27 / 2),
+        borderRadius: horizontalScale(27 / 2),
         overflow: "hidden",
-        width: verticalScale(27),
-        height: horizontalScale(27),
+        width: horizontalScale(27),
+        aspectRatio: 1,
       }
     : {
-        borderRadius: verticalScale(24 / 2),
+        borderRadius: horizontalScale(24 / 2),
         overflow: "hidden",
-        width: verticalScale(24),
-        height: horizontalScale(24),
+        width: horizontalScale(24),
+        aspectRatio: 1,
       };
 }
 

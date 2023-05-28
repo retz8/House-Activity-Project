@@ -33,20 +33,26 @@ export default function TabNavigator() {
         name="Main"
         component={Main}
         options={{
-          tabBarIcon: ({ focused, color, size }) => (
-            <View
-              style={[
-                styles.tabBarItem,
-                {
-                  backgroundColor: color === "#fff" ? "#93373C" : "#fff",
-                  borderColor: color === "#fff" ? "#78060C" : "#fff",
-                },
-              ]}
-            >
-              <AntDesign name="home" size={size} color={color} />
-              <Text style={[styles.tabBarLabel, { color: color }]}>Home</Text>
-            </View>
-          ),
+          tabBarIcon: ({ focused, color, size }) => {
+            return (
+              <View
+                style={[
+                  styles.tabBarItem,
+                  {
+                    backgroundColor: color === "#fff" ? "#93373C" : "#fff",
+                    borderColor: color === "#fff" ? "#78060C" : "#fff",
+                  },
+                ]}
+              >
+                <AntDesign
+                  name="home"
+                  size={styles.tabBarIcon.height}
+                  color={color}
+                />
+                <Text style={[styles.tabBarLabel, { color: color }]}>Home</Text>
+              </View>
+            );
+          },
         }}
       />
       <Tab.Screen

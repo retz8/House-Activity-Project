@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 
   tabBarItem: {
     height: verticalScale(45),
-    width: "90%",
+    width: horizontalScale(75),
     borderRadius: verticalScale(50),
     borderWidth: verticalScale(2),
     alignItems: "center",

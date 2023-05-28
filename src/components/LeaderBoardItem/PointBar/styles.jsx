@@ -52,6 +52,8 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   houseNameText: {
+    position: "absolute",
+    top: verticalScale(0),
     alignSelf: "center",
     fontFamily: "BalooBhaijaan2-ExtraBold",
     fontSize: fontPercentage(15),
@@ -59,6 +61,8 @@ const styles = StyleSheet.create({
     color: "#4E3535",
   },
   smallHouseNameText: {
+    position: "absolute",
+    top: verticalScale(0),
     alignSelf: "center",
     fontFamily: "BalooBhaijaan2-ExtraBold",
     fontSize: fontPercentage(13),
@@ -66,15 +70,17 @@ const styles = StyleSheet.create({
     color: "#4E3535",
   },
   scoreText: {
+    position: "absolute",
+    top: verticalScale(25),
     fontFamily: "BalooBhaijaan2-ExtraBold",
     fontSize: fontPercentage(20),
-    lineHeight: verticalScale(30),
     color: "#FFFFFF",
   },
   smallScoreText: {
+    position: "absolute",
+    top: verticalScale(20),
     fontFamily: "BalooBhaijaan2-ExtraBold",
     fontSize: fontPercentage(16),
-    lineHeight: verticalScale(20),
     color: "#FFFFFF",
   },
 });

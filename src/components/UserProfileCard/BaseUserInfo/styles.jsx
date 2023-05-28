@@ -10,19 +10,19 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: "center",
     alignItems: "center",
+    marginBottom: verticalScale(10),
   },
   profilePicture: {
     width: horizontalScale(125),
     aspectRatio: 1,
     borderRadius: horizontalScale(125) / 2,
-    resizeMode: "cover",
+    resizeMode: "contain",
     marginBottom: verticalScale(10),
   },
   username: {
     fontSize: fontPercentage(33),
     fontFamily: "BalooBhaijaan2-Bold",
     color: "#4E3535",
-    lineHeight: verticalScale(50),
     marginBottom: verticalScale(-10),
   },
   role: {
