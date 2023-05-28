@@ -9,10 +9,11 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import LeaderBoardItem from "../../components/LeaderBoardItem/LeaderBoardItem";
-import { getFilteredEvents } from "../../api/event";
+import { getAllEvents, getFilteredEvents } from "../../api/event";
 import { loggedInUserContext } from "../../hooks/UserContext";
 import Loading from "../../components/Loading/Loading";
 import EventSummary from "./EventSummary/EventSummary";
+import EventsList from "../Search/EventsList/EventsList";
 
 let pageNum = 1;
 const limit = 5;
@@ -28,78 +29,38 @@ export default function LeaderBoard({ navigation }) {
     navigation.setOptions({ headerShown: false });
   }, [navigation]);
 
-  const fetchMoreEvents = async () => {
-    if (reachedToEnd || busy) return;
-    pageNum += 1;
-
-    setBusy(true);
-    const { error, events, eventCount } = await getFilteredEvents(
-      pageNum,
-      limit
-    ); // api 요청
-    setBusy(false);
+  const fetchAllEvents = async () => {
+    const { error, events } = await getAllEvents();
     if (error) return console.log(error);
-    if (eventCount === filteredEvents.length) return setReachedToEnd(true);
 
-    setFilteredEvents([...filteredEvents, ...events]);
-  };
-
-  const fetchMoreEventsMock = () => {
-    setReachedToEnd(true);
+    const resultPostedEvents = events.filter(
+      (event) => event.resultPosted.waitingResult === false
+    );
+    setFilteredEvents(resultPostedEvents);
   };
 
   useEffect(() => {
-    setFilteredEvents(initialFilteredEvents["data"]);
-    console.log("------------------------------");
-    return () => {
-      // cleanup whenever we unmount home component
-      pageNo = 1;
-      setReachedToEnd(false);
-    };
+    fetchAllEvents();
   }, []);
 
   if (!filteredEvents) {
     return <Loading />;
   }
 
-  const Item = ({ title }) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
   return (
     <SafeAreaView style={styles.container}>
       {/* 1. House Points Visualization (Leaderboard Four houses) */}
-      <LeaderBoardItem navigation={navigation} />
+      <View style={styles.leaderboardItemContainer}>
+        <LeaderBoardItem navigation={navigation} />
+      </View>
+
       {/* 2. FlatList rendering all of the events summary */}
       <View style={styles.eventSummariesContainer}>
-        {/* { //<FlatList
-          // //
-          // // for data, pass filteredEvents
-          // // for renderItem, render EventSummary component, don't pass onPress now
-          */
-        /*
-          // ** THE CODE BELOW IS TO FETCH MORE POSTS WHEN USER SCROLLS DOWN **
-          // ** PLEASE LEAVE THE CODE BELOW, IF YOU THINK THE CODE BELOW HAS AN ERROR, **
-          // ** LET JIOH KNOW **
-          // onEndReached={fetchMoreEventsMock}
-          // onEndReachedThreshold={0.1} // only call method when it compeltely ends
-          // ListFooterComponent={() => {
-          //   return reachedToEnd ? (
-          //     <Text
-          //       styles={{
-          //         fontWeight: "bold",
-          //         color: "#383838",
-          //         textAlign: "center",
-          //         paddingVertical: 15,
-          //       }}
-          //     >
-          //       You reached to the end!
-          //     </Text>
-          //   ) : null;
-          // }}
-
-          // /> } */}
+        <EventsList
+          data={filteredEvents}
+          navigation={navigation}
+          mode="showResult"
+        />
       </View>
     </SafeAreaView>
   );

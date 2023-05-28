@@ -54,28 +54,10 @@ export default function Main({ navigation, route }) {
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
-        <Text style={styles.title}>Hello!</Text>
+        <Text
+          style={styles.title}
+        >{`Hello! ${loggedInUser?.displayName}`}</Text>
 
-        {/* Please Uncomment below when you add to repo */}
-
-        <Button
-          title="go to user profile"
-          onPress={() =>
-            navigation.navigate("UserProfile", { user: loggedInUser })
-          }
-        />
-        <Button
-          title="go to Albemarle house profile"
-          onPress={() =>
-            navigation.navigate("HouseProfile", { houseName: "Albemarle" })
-          }
-        />
-        <Button
-          title="go to Lambert house profile"
-          onPress={() =>
-            navigation.navigate("HouseProfile", { houseName: "Lambert" })
-          }
-        />
         {sliderEvents && (
           <View style={styles.sliderContainer}>
             <Slider navigation={navigation} data={sliderEvents} />

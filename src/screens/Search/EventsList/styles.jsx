@@ -18,6 +18,7 @@ fontFamily: "BalooBhaijaan2-Medium",
 const styles = StyleSheet.create({
   listContainer: {
     flex: 1,
+    width: "100%",
     paddingTop: verticalScale(3),
   },
   noEventsText: {

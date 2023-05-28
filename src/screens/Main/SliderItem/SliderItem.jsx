@@ -36,8 +36,13 @@ export default function SliderItem({ navigation, item, status }) {
 
   if (item?.type === "Leaderboard") {
     return (
-      <View style={styles.container}>
-        <LeaderBoardItem />
+      <View>
+        <TouchableOpacity
+          style={styles.container}
+          onPress={() => navigation.navigate("Leaderboard")}
+        >
+          <LeaderBoardItem navigation={navigation} size="small" />
+        </TouchableOpacity>
       </View>
     );
   }

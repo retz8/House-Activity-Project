@@ -1,8 +1,8 @@
 import { StyleSheet, StatusBar } from "react-native";
 import {
-    fontPercentage,
-    horizontalScale,
-    verticalScale,
+  fontPercentage,
+  horizontalScale,
+  verticalScale,
 } from "../../helpers/responsiveSize";
 
 /*
@@ -20,19 +20,33 @@ fontFamily: "BalooBhaijaan2-Medium",
 */
 
 const styles = StyleSheet.create({
-    container: {
-        width: "100%",
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    eventSummariesContainer: {
-        width: "100%",
-        height: horizontalScale(287),
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: '#FF0000', 
-    },
+  container: {
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
+  },
+  leaderboardItemContainer: {
+    flex: 3,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  eventSummariesContainer: {
+    flex: 2,
+    width: "100%",
+
+    alignItems: "center",
+    justifyContent: "center",
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderColor: "gray",
+    borderTopWidth: 1,
+    borderRightWidth: 1,
+    borderLeftWidth: 1,
+    backgroundColor: "#F5F4F3",
+  },
 });
 
 export default styles;

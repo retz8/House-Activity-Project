@@ -8,9 +8,10 @@
 import { Image, Text, TouchableHighlight, View } from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
+import ResultDisplay from "./ResultDisplay/ResultDisplay";
 
-export default function EventPreview({ event, onPress }) {
-  const { title, startDate, endDate, thumbnail } = event;
+export default function EventPreview({ event, onPress, mode = "normal" }) {
+  const { title, startDate, endDate, thumbnail, result } = event;
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => setIsHovered(true);
@@ -49,10 +50,17 @@ export default function EventPreview({ event, onPress }) {
 
         <View style={styles.rightContainer}>
           <Text style={styles.eventTitle}>{title}</Text>
-          <View style={styles.dateContainer}>
-            <Text style={styles.eventLabel}>Date: </Text>
-            <Text style={styles.eventText}>{formattedDuration()}</Text>
-          </View>
+          {mode === "showResult" ? (
+            <View style={styles.resultContainer}>
+              <ResultDisplay result={result} />
+            </View>
+          ) : (
+            <View style={styles.dateContainer}>
+              <Text style={styles.eventLabel}>Date: </Text>
+
+              <Text style={styles.eventText}>{formattedDuration()}</Text>
+            </View>
+          )}
         </View>
       </View>
     </TouchableHighlight>

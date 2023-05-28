@@ -16,7 +16,7 @@ import styles from "./styles";
 import BaseUserInfo from "./BaseUserInfo/BaseUserInfo";
 import DetailedUser from "./DetailedUser/DetailedUser";
 
-export default function UserProfileCard({ navigation, user }) {
+export default function UserProfileCard({ navigation, user, isMine = false }) {
   // -----------------------------------------------------
   return (
     <SafeAreaView style={styles.container}>
@@ -29,12 +29,7 @@ export default function UserProfileCard({ navigation, user }) {
       </View>
 
       <View style={styles.detailedUser}>
-        <DetailedUser
-          navigation={navigation}
-          email={user.email}
-          house={user.house}
-          introduction={user.introduction}
-        />
+        <DetailedUser user={user} navigation={navigation} isMine={isMine} />
       </View>
     </SafeAreaView>
   );

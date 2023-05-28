@@ -22,6 +22,7 @@ export default function Profile({ navigation }) {
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   const signout = async () => {
+    setIsLoggingOut(true);
     await AuthSession.revokeAsync(
       {
         token: accessToken,
@@ -31,7 +32,7 @@ export default function Profile({ navigation }) {
       }
     );
     console.log("Logout!");
-    setIsLoggingOut(true);
+
     setAccessToken(undefined);
     setLoggedInUser(undefined);
 
@@ -47,12 +48,15 @@ export default function Profile({ navigation }) {
           <Text>Signing out...</Text>
         ) : (
           <View style={styles.contentContainer}>
-            <UserProfileCard navigation={navigation} user={loggedInUser} />
+            <UserProfileCard
+              navigation={navigation}
+              user={loggedInUser}
+              isMine={true}
+            />
             <ImageButton
               source={require("../../../assets/Profile/signoutButton.png")}
               style={styles.signoutButton}
-              onPress={() => {}}
-              // onPress={signout}
+              onPress={signout}
             />
           </View>
         )}

@@ -31,7 +31,6 @@ export default function HouseProfile({ navigation, route }) {
     if (error) {
       console.log(error);
     }
-    console.log(house);
     setHouse(house);
   };
 
@@ -40,7 +39,6 @@ export default function HouseProfile({ navigation, route }) {
     if (error) {
       console.log(error);
     }
-    console.log(users);
     setMembers(users);
   };
 
@@ -49,25 +47,13 @@ export default function HouseProfile({ navigation, route }) {
     if (error) {
       console.log(error);
     }
-    console.log(leaders);
     setLeaders(leaders);
   };
 
-  const fetchMockHouse = () => {
-    const mockHouse = require("../../../data/house/house.json");
-    const mockMembers = require("../../../data/house/users.js");
-    const mockLeaders = require("../../../data/house/leaders.json");
-
-    setHouse(mockHouse);
-    setMembers(mockMembers);
-    setLeaders(mockLeaders);
-  };
-
   useEffect(() => {
-    // fetchHouse();
-    // fetchMembers();
-    // fetchLeaders();
-    fetchMockHouse();
+    fetchHouse();
+    fetchMembers();
+    fetchLeaders();
   }, []);
 
   // -----------------------------------------------------

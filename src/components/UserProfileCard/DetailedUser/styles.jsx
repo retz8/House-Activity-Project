@@ -8,7 +8,7 @@ import {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFFFFF",
-
+    flex: 1,
     width: horizontalScale(315),
     marginBottom: verticalScale(20),
     borderRadius: 25,
@@ -31,8 +31,19 @@ const styles = StyleSheet.create({
     fontFamily: "BalooBhaijaan2-Bold",
     color: "#504545",
     opacity: 0.65,
-    maxWidth: verticalScale(170),
+    paddingLeft: horizontalScale(5),
+    maxWidth: verticalScale(160),
     textAlign: "right",
+  },
+  submitButton: {
+    paddingLeft: horizontalScale(5),
+  },
+
+  inputContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    paddingLeft: horizontalScale(5),
   },
 
   houseText: {

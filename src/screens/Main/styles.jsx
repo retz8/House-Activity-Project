@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "BalooBhaijaan2-Bold",
     fontSize: fontPercentage(30),
-    left: horizontalScale(-123),
+    alignSelf: "flex-start",
+    paddingLeft: horizontalScale(20),
     marginVertical: verticalScale(9),
   },
 

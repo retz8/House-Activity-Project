@@ -11,6 +11,7 @@ export default function EventsList({
   setClicked = () => {},
   data,
   navigation,
+  mode = "normal",
 }) {
   const [displayData, setDisplayData] = useState(data);
 
@@ -33,7 +34,11 @@ export default function EventsList({
 
   const renderItem = ({ item }) => {
     return (
-      <EventPreview event={item} onPress={() => handlePreviewPress(item)} />
+      <EventPreview
+        event={item}
+        onPress={() => handlePreviewPress(item)}
+        mode={mode}
+      />
     );
   };
 

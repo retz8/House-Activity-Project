@@ -1,3 +1,0 @@
-This is mock data
-
-In production or if server connection works well, please use "dev" branch instead

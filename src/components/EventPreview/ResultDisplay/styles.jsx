@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, StatusBar } from "react-native";
 import {
   fontPercentage,
   horizontalScale,
@@ -21,28 +21,25 @@ fontFamily: "BalooBhaijaan2-Medium",
 
 const styles = StyleSheet.create({
   container: {
+    width: "100%",
     flex: 1,
-    alignSelf: "center",
+    flexDirection: "row",
+  },
+  content: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
     alignItems: "center",
   },
-  profilePicture: {
-    width: horizontalScale(125),
-    aspectRatio: 1,
-    borderRadius: horizontalScale(125) / 2,
-    resizeMode: "cover",
-    marginBottom: verticalScale(10),
+  ball: {
+    width: horizontalScale(20),
+    height: verticalScale(20),
+    borderRadius: horizontalScale(10),
+    marginRight: horizontalScale(5),
   },
-  username: {
-    fontSize: fontPercentage(33),
+  text: {
     fontFamily: "BalooBhaijaan2-Bold",
-    color: "#4E3535",
-    lineHeight: verticalScale(50),
-    marginBottom: verticalScale(-10),
-  },
-  role: {
-    fontFamily: "BalooBhaijaan2-Bold",
-    fontSize: fontPercentage(20),
-    color: "#504545CC",
+    fontSize: fontPercentage(18),
   },
 });
 

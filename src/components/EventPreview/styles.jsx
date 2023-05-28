@@ -49,6 +49,12 @@ const styles = StyleSheet.create({
     fontFamily: "BalooBhaijaan2-Bold",
     fontSize: fontPercentage(20),
   },
+  resultContainer: {
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "flex-start",
+    height: verticalScale(30),
+  },
 
   dateContainer: {
     flexDirection: "row",
