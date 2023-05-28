@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   container: {
     width: horizontalScale(350),
     height: verticalScale(250),
-    borderColor: "#B2B2B2",
+    borderColor: "#D0D0D0",
     borderWidth: 0.5,
     borderRadius: 30,
   },
