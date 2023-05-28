@@ -4,25 +4,17 @@
 // filteredEvents: all past & result posted events (array of objects)
 // please see "API Documentation" for more details to access values in filteredEvents
 
-import { FlatList, Text, View } from "react-native";
-import React, { useContext, useEffect, useState } from "react";
+import { View } from "react-native";
+import React, { useEffect, useState } from "react";
 import styles from "./styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import LeaderBoardItem from "../../components/LeaderBoardItem/LeaderBoardItem";
-import { getAllEvents, getFilteredEvents } from "../../api/event";
-import { loggedInUserContext } from "../../hooks/UserContext";
+import { getAllEvents } from "../../api/event";
 import Loading from "../../components/Loading/Loading";
 import EventsList from "../../components/EventsList/EventsList";
 
-let pageNum = 1;
-const limit = 5;
-
 export default function LeaderBoard({ navigation }) {
-  const [reachedToEnd, setReachedToEnd] = useState(false);
-  const [busy, setBusy] = useState(false);
   const [filteredEvents, setFilteredEvents] = useState();
-  const { loggedInUser, initialFilteredEvents } =
-    useContext(loggedInUserContext);
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
