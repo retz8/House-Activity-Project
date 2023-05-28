@@ -2,8 +2,8 @@ import client from "./client";
 
 export const getHouseByName = async (houseName) => {
   try {
-    console.log(houseName);
     const { data } = await client(`/house/name/${houseName}`);
+    //console.log(data);
     return data;
   } catch (error) {
     const { response } = error;

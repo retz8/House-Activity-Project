@@ -3,7 +3,7 @@ import {
   fontPercentage,
   horizontalScale,
   verticalScale,
-} from "../../../helpers/responsiveSize";
+} from "../../helpers/responsiveSize";
 
 /*
 WHEN YOU ARE USING WIDTH / HEIGHT / FONTSIZE
@@ -20,10 +20,10 @@ fontFamily: "BalooBhaijaan2-Medium",
 */
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+  divider: {
+    borderColor: "#4E3535",
+    opacity: 0.25,
+    borderWidth: 0.75,
   },
 });
 

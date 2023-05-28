@@ -1,13 +1,14 @@
-// House Profile Page
-// house = current house [Object]
-// Please refer to "API Documentation" for more details to access values in house
-
-import { Button, Text, TouchableOpacity, View } from "react-native";
+import { View, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import styles from "./styles";
 import { getHouseByName, getLeaders, getMembers } from "../../api/house";
+
+import { getHouseColor } from "../../helpers/houseColors";
+import Loading from "../../components/Loading/Loading";
 import ImageButton from "../../components/ImageButton/ImageButton";
+import BaseHouseInfo from "./BaseHouseInfo/BaseHouseInfo";
+import HouseUsers from "./HouseUsers/HouseUsers";
+import styles from "./styles";
 
 export default function HouseProfile({ navigation, route }) {
   const { houseName } = route.params;
@@ -47,25 +48,40 @@ export default function HouseProfile({ navigation, route }) {
 
   // -----------------------------------------------------
 
-  return (
-    <SafeAreaView style={styles.container}>
-      {/* You don't need to worry about this go back button */}
-      <View style={styles.backButtonContainer}>
-        <ImageButton
-          source={require("../../../assets/HouseProfile/backButton.png")}
-          style={styles.backButton}
-          onPress={() => navigation.pop()}
-        />
-      </View>
+  if (!house || !leaders || !members) {
+    return <Loading />;
+  }
 
-      {house && leaders && members ? (
-        <View style={styles.contentsContainer}>
-          <Text>{house.name}</Text>
-          <Text>{house.point}</Text>
+  return (
+    <ScrollView>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.backButtonContainer}>
+          <ImageButton
+            source={require("../../../assets/HouseProfile/backButton.png")}
+            style={styles.backButton}
+            onPress={() => navigation.pop()}
+          />
         </View>
-      ) : (
-        <Text>Loading...</Text>
-      )}
-    </SafeAreaView>
+
+        <View style={styles.contentsContainer}>
+          <View style={styles.baseHouseInfo}>
+            <BaseHouseInfo
+              crest={house.crest}
+              name={house.name}
+              point={house.point}
+              color={getHouseColor(house.name)}
+            />
+          </View>
+
+          <View style={styles.houseUsers}>
+            <HouseUsers
+              navigation={navigation}
+              leaders={leaders}
+              members={members}
+            />
+          </View>
+        </View>
+      </SafeAreaView>
+    </ScrollView>
   );
 }

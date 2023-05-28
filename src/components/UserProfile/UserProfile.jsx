@@ -40,7 +40,7 @@ export default function UserProfile({ navigation, route }) {
         />
       </View>
 
-      <UserProfileCard user={user} />
+      <UserProfileCard navigation={navigation} user={user} />
     </SafeAreaView>
   );
 }

@@ -1,20 +1,68 @@
 // If user clicks EventPreview Component, it directs to matching EventPage
-// <UserProfileCard>
-// user: current user
-// please refer to "API Documentation" for more details to access values of user
+// event preview: display following
+// 1. title
+// 2. date (start, end)
+// 3. content
+// 4. thumbnail
 
-import { Button, Text, TouchableOpacity, View } from "react-native";
-import React, { Component, useContext, useEffect, useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Image, Text, TouchableHighlight, View } from "react-native";
+import React, { useState } from "react";
 import styles from "./styles";
+import ResultDisplay from "./ResultDisplay/ResultDisplay";
 
-export default function EventPreview({ event, onPress }) {
-  const { title } = event;
+export default function EventPreview({ event, onPress, mode = "normal" }) {
+  const { title, startDate, endDate, thumbnail, result } = event;
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
+  const dateToDurationString = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1; // Months are zero-indexed
+    const day = date.getDate();
+
+    const formattedDate = `${year}/${month}/${day}`;
+    return formattedDate;
+  };
+
+  const formattedDuration = () => {
+    const startDateString = dateToDurationString(startDate);
+    const endDateString = dateToDurationString(endDate);
+
+    return startDateString === endDateString
+      ? startDateString
+      : `${startDateString} ~ ${endDateString}`;
+  };
 
   // -----------------------------------------------------
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
-      <Text>{title}</Text>
-    </TouchableOpacity>
+    <TouchableHighlight
+      underlayColor="#EDEAEA"
+      activeOpacity={0.1}
+      onShowUnderlay={handleMouseEnter}
+      onHideUnderlay={handleMouseLeave}
+      onPress={onPress}
+    >
+      <View style={styles.container}>
+        <Image source={{ uri: thumbnail.url }} style={styles.thumbnailImage} />
+
+        <View style={styles.rightContainer}>
+          <Text style={styles.eventTitle}>{title}</Text>
+          {mode === "showResult" ? (
+            <View style={styles.resultContainer}>
+              <ResultDisplay result={result} />
+            </View>
+          ) : (
+            <View style={styles.dateContainer}>
+              <Text style={styles.eventLabel}>Date: </Text>
+
+              <Text style={styles.eventText}>{formattedDuration()}</Text>
+            </View>
+          )}
+        </View>
+      </View>
+    </TouchableHighlight>
   );
 }

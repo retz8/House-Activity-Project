@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, StatusBar } from "react-native";
 import {
   fontPercentage,
   horizontalScale,
@@ -21,16 +21,29 @@ fontFamily: "BalooBhaijaan2-Medium",
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
     flex: 1,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
+  },
+  leaderboardItemContainer: {
+    flex: 3,
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
   },
   eventSummariesContainer: {
+    flex: 2,
     width: "100%",
-    height: horizontalScale(287),
+
     alignItems: "center",
     justifyContent: "center",
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderColor: "#D0D0D0",
+    borderWidth: 1,
+    backgroundColor: "#F5F4F3",
   },
 });
 

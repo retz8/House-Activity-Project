@@ -1,5 +1,9 @@
 import { StyleSheet } from "react-native";
-import { fontPercentage, verticalScale } from "../../helpers/responsiveSize";
+import {
+  fontPercentage,
+  verticalScale,
+  horizontalScale,
+} from "../../helpers/responsiveSize";
 
 const styles = StyleSheet.create({
   container: {
@@ -7,24 +11,23 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  renderItemContainer: {
-    marginBottom: verticalScale(7.5),
-  },
-  testText: {
+  title: {
     fontFamily: "BalooBhaijaan2-Bold",
-    fontSize: 30,
+    fontSize: fontPercentage(30),
+    alignSelf: "flex-start",
+    paddingLeft: horizontalScale(20),
+    marginVertical: verticalScale(9),
   },
+
+  sliderContainer: {
+    width: "100%",
+    height: verticalScale(296),
+  },
+
   listContainer: {
     width: "100%",
     flex: 1,
   },
-  noEventsText: {
-    fontFamily: "BalooBhaijaan2-Bold",
-    fontSize: fontPercentage(15),
-    alignSelf: "center",
-    opacity: 0.5,
-  },
-  logoutButton: {},
 });
 
 export default styles;

@@ -10,16 +10,109 @@ import Search from "../../screens/Search/Search";
 import Profile from "../../screens/Profile/Profile";
 import Main from "../../screens/Main/Main";
 import styles from "./styles";
+import { View, Text } from "react-native";
+
+import { AntDesign } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 
 export default function TabNavigator() {
   return (
-    <Tab.Navigator initialRouteName="Main">
-      <Tab.Screen name="Main" component={Main} />
-      <Tab.Screen name="LeaderBoard" component={LeaderBoard} />
-      <Tab.Screen name="Search" component={Search} />
-      <Tab.Screen name="Profile" component={Profile} />
+    <Tab.Navigator
+      initialRouteName="Main"
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarStyle: styles.tabBar,
+        tabBarActiveTintColor: styles.activeTabLabel.color,
+        tabBarInactiveTintColor: styles.inactiveTabLabel.color,
+      }}
+    >
+      <Tab.Screen
+        name="Main"
+        component={Main}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <View
+              style={[
+                styles.tabBarItem,
+                {
+                  backgroundColor: color === "#fff" ? "#93373C" : "#fff",
+                  borderColor: color === "#fff" ? "#78060C" : "#fff",
+                },
+              ]}
+            >
+              <AntDesign name="home" size={size} color={color} />
+              <Text style={[styles.tabBarLabel, { color: color }]}>Home</Text>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Leaderboard"
+        component={LeaderBoard}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <View
+              style={[
+                styles.tabBarItem,
+                {
+                  backgroundColor: color === "#fff" ? "#93373C" : "#fff",
+                  borderColor: color === "#fff" ? "#78060C" : "#fff",
+                },
+              ]}
+            >
+              <Feather name="grid" size={size} color={color} />
+              <Text style={[styles.tabBarLabel, { color: color }]}>
+                Leaderboard
+              </Text>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={Search}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <View
+              style={[
+                styles.tabBarItem,
+                {
+                  backgroundColor: color === "#fff" ? "#93373C" : "#fff",
+                  borderColor: color === "#fff" ? "#78060C" : "#fff",
+                },
+              ]}
+            >
+              <AntDesign name="search1" size={size} color={color} />
+              <Text style={[styles.tabBarLabel, { color: color }]}>Search</Text>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <View
+              style={[
+                styles.tabBarItem,
+                {
+                  backgroundColor: color === "#fff" ? "#93373C" : "#fff",
+                  borderColor: color === "#fff" ? "#78060C" : "#fff",
+                },
+              ]}
+            >
+              <FontAwesome5 name="user-circle" size={size} color={color} />
+              <Text style={[styles.tabBarLabel, { color: color }]}>
+                Profile
+              </Text>
+            </View>
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
