@@ -5,8 +5,9 @@ import * as AuthSession from "expo-auth-session";
 import { loggedInUserContext } from "../../hooks/UserContext";
 
 import UserProfileCard from "../../components/UserProfileCard/UserProfileCard";
-import ImageButton from "../../components/ImageButton/ImageButton";
+import Loading from "../../components/Loading/Loading";
 import styles from "./styles";
+import SignOutButton from "./SignOutButton/SignOutButton";
 
 export default function Profile({ navigation }) {
   const { loggedInUser, accessToken, setAccessToken, setLoggedInUser } =
@@ -39,28 +40,20 @@ export default function Profile({ navigation }) {
 
   return (
     <ScrollView>
-      <SafeAreaView style={styles.container}>
-        {isSigningOut ? (
-          <ImageButton
-            source={require("../../../assets/Profile/signoutLoadingButton.png")}
-            style={styles.signoutButton}
-            onPress={() => {}}
-          />
-        ) : (
+      {isSigningOut ? (
+        <Loading />
+      ) : (
+        <SafeAreaView style={styles.container}>
           <View style={styles.contentContainer}>
             <UserProfileCard
               navigation={navigation}
               user={loggedInUser}
               isMine={true}
             />
-            <ImageButton
-              source={require("../../../assets/Profile/signoutButton.png")}
-              style={styles.signoutButton}
-              onPress={signout}
-            />
+            <SignOutButton text={"Sign out"} onPress={signout} />
           </View>
-        )}
-      </SafeAreaView>
+        </SafeAreaView>
+      )}
     </ScrollView>
   );
 }

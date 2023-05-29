@@ -31,7 +31,7 @@ export default function PointBar({
             style={styles.buttonCrestStyle}
             activeOpacity={0.5}
             onPress={() =>
-              navigation.navigate("HouseProfile", { houseName: "Albemarle" })
+              navigation.navigate("HouseProfile", { houseName: name })
             }
           >
             <Image

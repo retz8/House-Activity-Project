@@ -17,7 +17,6 @@ const ANDROID_CLIENT_ID = Constants?.expoConfig?.extra?.ANDROID_CLIENT_ID;
 const IOS_CLIENT_ID = Constants?.expoConfig?.extra?.IOS_CLIENT_ID;
 const EXPO_CLIENT_ID = Constants?.expoConfig?.extra?.EXPO_CLIENT_ID;
 
-import ImageButton from "../../components/ImageButton/ImageButton";
 import styles from "./styles";
 import SigninButton from "./SignInButton/SignInButton";
 

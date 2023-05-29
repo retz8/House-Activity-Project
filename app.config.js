@@ -34,6 +34,14 @@ export default {
     web: {
       favicon: "./assets/favicon.png",
     },
+    plugins: [
+      [
+        "expo-screen-orientation",
+        {
+          initialOrientation: "PORTRAIT",
+        },
+      ],
+    ],
     extra: {
       eas: {
         projectId: "49724e9e-0186-4224-b476-10fbea1c021b",
