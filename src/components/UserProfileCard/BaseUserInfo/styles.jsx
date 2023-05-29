@@ -8,24 +8,27 @@ import {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignSelf: "center",
+    width: "100%",
     alignItems: "center",
+    justifyContent: "flex-start",
     marginBottom: verticalScale(10),
   },
   profilePicture: {
-    width: horizontalScale(125),
     aspectRatio: 1,
-    borderRadius: horizontalScale(125) / 2,
+    height: verticalScale(125),
+    borderRadius: verticalScale(125 / 2),
     resizeMode: "contain",
-    marginBottom: verticalScale(10),
   },
   username: {
+    position: "absolute",
+    top: verticalScale(125),
     fontSize: fontPercentage(33),
     fontFamily: "BalooBhaijaan2-Bold",
     color: "#4E3535",
-    marginBottom: verticalScale(-10),
   },
   role: {
+    position: "absolute",
+    top: verticalScale(175),
     fontFamily: "BalooBhaijaan2-Bold",
     fontSize: fontPercentage(20),
     color: "#504545CC",

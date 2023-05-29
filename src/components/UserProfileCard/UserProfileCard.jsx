@@ -1,17 +1,5 @@
-// <UserProfileCard>
-// user: current user
-// please refer to "API Documentation" for more details to access values of user
-
-import {
-  Button,
-  Text,
-  TouchableOpacity,
-  View,
-  ImageBackground,
-  Image,
-} from "react-native";
-import React, { Component, useContext, useEffect, useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { View } from "react-native";
+import React from "react";
 import styles from "./styles";
 import BaseUserInfo from "./BaseUserInfo/BaseUserInfo";
 import DetailedUser from "./DetailedUser/DetailedUser";
@@ -19,7 +7,7 @@ import DetailedUser from "./DetailedUser/DetailedUser";
 export default function UserProfileCard({ navigation, user, isMine = false }) {
   // -----------------------------------------------------
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.baseUserInfo}>
         <BaseUserInfo
           profilePic={user.profilePic.url}
@@ -31,6 +19,6 @@ export default function UserProfileCard({ navigation, user, isMine = false }) {
       <View style={styles.detailedUser}>
         <DetailedUser user={user} navigation={navigation} isMine={isMine} />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }

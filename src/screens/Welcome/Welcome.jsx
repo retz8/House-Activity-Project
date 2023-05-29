@@ -4,16 +4,22 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { loggedInUserContext } from "../../hooks/UserContext";
 import * as Google from "expo-auth-session/providers/google";
 import * as WebBrowser from "expo-web-browser";
+import Constants from "expo-constants";
 
-import {
-  ANDROID_CLIENT_ID,
-  IOS_CLIENT_ID,
-  EXPO_CLIENT_ID,
-  API_URL,
-} from "@env";
+// import {
+//   ANDROID_CLIENT_ID,
+//   IOS_CLIENT_ID,
+//   EXPO_CLIENT_ID,
+// } from "@env";
+
+const API_URL = Constants?.expoConfig?.extra?.API_URL;
+const ANDROID_CLIENT_ID = Constants?.expoConfig?.extra?.ANDROID_CLIENT_ID;
+const IOS_CLIENT_ID = Constants?.expoConfig?.extra?.IOS_CLIENT_ID;
+const EXPO_CLIENT_ID = Constants?.expoConfig?.extra?.EXPO_CLIENT_ID;
 
 import ImageButton from "../../components/ImageButton/ImageButton";
 import styles from "./styles";
+import SigninButton from "./SignInButton/SignInButton";
 
 WebBrowser.maybeCompleteAuthSession();
 LogBox.ignoreAllLogs();
@@ -92,17 +98,10 @@ function Welcome({ navigation }) {
         <Text style={styles.descText}>House Events</Text>
       </View>
       {loggingIn ? (
-        // LogginIn Image
-        <ImageButton
-          source={require("../../../assets/Welcome/loggingInButton.png")}
-          style={styles.imageButton}
-          onPress={() => {}}
-        />
+        <SigninButton text={"Signing in..."} onPress={() => {}} />
       ) : (
-        // Login Image button
-        <ImageButton
-          source={require("../../../assets/Welcome/loginButton.png")}
-          style={styles.imageButton}
+        <SigninButton
+          text={"Sign in"}
           onPress={() => promptAsync({ showInRecents: false })}
         />
       )}

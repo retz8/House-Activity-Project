@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
 
   baseUserInfo: {
-    flex: 1,
+    height: verticalScale(230),
     width: "100%",
   },
 

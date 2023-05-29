@@ -8,7 +8,6 @@ import {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFFFFF",
-    flex: 1,
     width: horizontalScale(315),
     marginBottom: verticalScale(20),
     borderRadius: 25,
@@ -32,7 +31,7 @@ const styles = StyleSheet.create({
     color: "#504545",
     opacity: 0.65,
     paddingLeft: horizontalScale(5),
-    maxWidth: verticalScale(160),
+    maxWidth: horizontalScale(160),
     textAlign: "right",
   },
   submitButton: {
@@ -59,7 +58,5 @@ const styles = StyleSheet.create({
     marginRight: horizontalScale(5),
   },
 });
-
-// fontFamily: "BalooBhaijaan2-Bold",
 
 export default styles;
