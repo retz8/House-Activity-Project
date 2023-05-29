@@ -7,13 +7,13 @@ const androidClientId = process.env.ANDROID_CLIENT_ID;
 
 export default {
   expo: {
-    name: "house-app",
+    name: "Pig Says Oink",
     slug: "house-app",
     version: "1.0.0",
     orientation: "portrait",
     icon: "./assets/icon.png",
     userInterfaceStyle: "light",
-    scheme: "com.retz8.houseapp",
+    scheme: "com.retz8.pigsaysoink",
     splash: {
       image: "./assets/splash.png",
       resizeMode: "contain",
@@ -22,10 +22,10 @@ export default {
     assetBundlePatterns: ["**/*"],
     ios: {
       supportsTablet: true,
-      bundleIdentifier: "com.retz8.houseapp",
+      bundleIdentifier: "com.retz8.pigsaysoink",
     },
     android: {
-      package: "com.retz8.houseapp",
+      package: "com.retz8.pigsaysoink",
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: "#ffffff",
