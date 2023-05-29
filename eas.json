@@ -8,14 +8,6 @@
       "distribution": "internal",
       "ios": {
         "resourceClass": "m1-medium"
-      },
-      "env": {
-        "ANDROID_CLIENT_ID": "663350635242-o7a5c8edndbe8mdjd9o7kgl18rk72jbo.apps.googleusercontent.com",
-        "IOS_CLIENT_ID": "663350635242-6krbv85q4p0gpuiibu34npfl441c8jm3.apps.googleusercontent.com",
-        "EXPO_CLIENT_ID": "663350635242-9qgom49t0skuhfjfhbf2p3olk16g21m8.apps.googleusercontent.com",
-
-        "DEV_API_URL": "http://192.168.0.114:8080",
-        "API_URL": "https://prisms-house-events-api-production.up.railway.app"
       }
     },
     "preview": {
@@ -25,27 +17,11 @@
       },
       "android": {
         "buildType": "apk"
-      },
-      "env": {
-        "ANDROID_CLIENT_ID": "663350635242-o7a5c8edndbe8mdjd9o7kgl18rk72jbo.apps.googleusercontent.com",
-        "IOS_CLIENT_ID": "663350635242-6krbv85q4p0gpuiibu34npfl441c8jm3.apps.googleusercontent.com",
-        "EXPO_CLIENT_ID": "663350635242-9qgom49t0skuhfjfhbf2p3olk16g21m8.apps.googleusercontent.com",
-
-        "DEV_API_URL": "http://192.168.0.114:8080",
-        "API_URL": "https://prisms-house-events-api-production.up.railway.app"
       }
     },
     "production": {
       "ios": {
         "resourceClass": "m1-medium"
-      },
-      "env": {
-        "ANDROID_CLIENT_ID": "663350635242-o7a5c8edndbe8mdjd9o7kgl18rk72jbo.apps.googleusercontent.com",
-        "IOS_CLIENT_ID": "663350635242-6krbv85q4p0gpuiibu34npfl441c8jm3.apps.googleusercontent.com",
-        "EXPO_CLIENT_ID": "663350635242-9qgom49t0skuhfjfhbf2p3olk16g21m8.apps.googleusercontent.com",
-
-        "DEV_API_URL": "http://192.168.0.114:8080",
-        "API_URL": "https://prisms-house-events-api-production.up.railway.app"
       }
     }
   },
