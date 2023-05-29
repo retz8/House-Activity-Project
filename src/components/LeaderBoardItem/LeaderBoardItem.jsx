@@ -57,8 +57,8 @@ export default function LeaderBoardItem({ navigation, size = "medium" }) {
     fetchHouses();
   }, []);
 
-  if (houses.length === 0 && orderResult === undefined) {
-    return <Loading />;
+  if (houses.length === 0 || orderResult === undefined) {
+    return <View />;
   }
 
   return (

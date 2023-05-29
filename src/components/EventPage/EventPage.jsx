@@ -37,8 +37,6 @@ export default function EventPage({ navigation, route }) {
   };
   const fetchHost = async () => {
     const { user, error } = await getUser(event.host[0]);
-    // console.log(event.host[0]);
-    // console.log(user);
     if (error) {
       console.log(error);
     }
@@ -90,12 +88,14 @@ export default function EventPage({ navigation, route }) {
           tier={event.tier}
         />
 
-        <ResultDisplay
-          waiting={event.resultPosted.waitingResult}
-          result={event.result}
-        />
+        {!event.upcoming && (
+          <ResultDisplay
+            waiting={event.resultPosted.waitingResult}
+            result={event.result}
+          />
+        )}
 
-        {!upcomingTest && <ParticipantsDisplay isForAll={event.isForAll} />}
+        <ParticipantsDisplay isForAll={event.isForAll} />
 
         <ContentDisplay content={event.content} />
       </ScrollView>

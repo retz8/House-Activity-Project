@@ -9,8 +9,8 @@ import Separator from "../Separator";
 export default function EventsList({
   searchPhrase = "",
   setClicked = () => {},
-  data,
   navigation,
+  data,
   mode = "normal",
 }) {
   const [displayData, setDisplayData] = useState(data);

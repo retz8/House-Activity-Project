@@ -5,11 +5,13 @@ import SliderItem from "../SliderItem/SliderItem";
 import Pagination from "../Pagination/Pagination";
 import styles from "./styles";
 
+const maxSlider = 5;
+
 export default function Slider({ navigation, data }) {
   const dataWithLeaderboard = [
     { type: "Leaderboard", resultPosted: { active: false } },
     ...data,
-  ];
+  ].slice(0, maxSlider);
   const [index, setIndex] = useState(0);
 
   const scrollX = useRef(new Animated.Value(0)).current;
