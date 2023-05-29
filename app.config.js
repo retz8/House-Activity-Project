@@ -9,7 +9,7 @@ export default {
   expo: {
     name: "Pig Says Oink",
     slug: "house-app",
-    version: "1.0.0",
+    version: "1.0.1",
     orientation: "portrait",
     icon: "./assets/icon.png",
     userInterfaceStyle: "light",
