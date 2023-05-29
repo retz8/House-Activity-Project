@@ -69,7 +69,11 @@ export default function TabNavigator() {
                 },
               ]}
             >
-              <Feather name="grid" size={size} color={color} />
+              <Feather
+                name="grid"
+                size={styles.tabBarIcon.height}
+                color={color}
+              />
               <Text style={[styles.tabBarLabel, { color: color }]}>
                 Leaderboard
               </Text>
@@ -91,7 +95,11 @@ export default function TabNavigator() {
                 },
               ]}
             >
-              <AntDesign name="search1" size={size} color={color} />
+              <AntDesign
+                name="search1"
+                size={styles.tabBarIcon.height}
+                color={color}
+              />
               <Text style={[styles.tabBarLabel, { color: color }]}>Search</Text>
             </View>
           ),
@@ -111,7 +119,11 @@ export default function TabNavigator() {
                 },
               ]}
             >
-              <FontAwesome5 name="user-circle" size={size} color={color} />
+              <FontAwesome5
+                name="user-circle"
+                size={styles.tabBarIcon.height}
+                color={color}
+              />
               <Text style={[styles.tabBarLabel, { color: color }]}>
                 Profile
               </Text>
