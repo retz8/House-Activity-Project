@@ -9,7 +9,7 @@ export default {
   expo: {
     name: "Pig Says Oink",
     slug: "house-app",
-    version: "1.0.1",
+    version: "1.0.3",
     orientation: "portrait",
     icon: "./assets/icon.png",
     userInterfaceStyle: "light",
@@ -17,7 +17,7 @@ export default {
     splash: {
       image: "./assets/splash.png",
       resizeMode: "contain",
-      backgroundColor: "#ffffff",
+      backgroundColor: "#5D0E23",
     },
     assetBundlePatterns: ["**/*"],
     ios: {
@@ -28,7 +28,7 @@ export default {
       package: "com.retz8.pigsaysoink",
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
-        backgroundColor: "#ffffff",
+        backgroundColor: "#5D0E23",
       },
     },
     web: {
