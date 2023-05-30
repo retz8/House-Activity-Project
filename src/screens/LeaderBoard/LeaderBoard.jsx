@@ -39,7 +39,7 @@ export default function LeaderBoard({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       {/* 1. House Points Visualization (Leaderboard Four houses) */}
       <View style={styles.leaderboardItemContainer}>
         <LeaderBoardItem navigation={navigation} />
@@ -53,6 +53,6 @@ export default function LeaderBoard({ navigation }) {
           mode="showResult"
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }

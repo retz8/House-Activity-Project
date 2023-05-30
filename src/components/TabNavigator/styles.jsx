@@ -10,8 +10,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderTopColor: "#ccc",
     borderTopWidth: 1,
-    height: verticalScale(71), // Customize the tab bar height
-    display: "flex",
+    height: verticalScale(95), // Customize the tab bar height
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",

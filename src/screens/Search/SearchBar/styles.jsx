@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     height: verticalScale(50),
     alignSelf: "center",
     alignItems: "center",
+    justifyContent: "space-between",
     borderRadius: 50,
     borderWidth: 1,
     borderColor: "#D9D9D9",
@@ -26,9 +27,15 @@ const styles = StyleSheet.create({
     height: verticalScale(50),
     alignSelf: "center",
     alignItems: "center",
+    justifyContent: "space-between",
     borderRadius: 50,
     borderWidth: 1,
     borderColor: "#D9D9D9",
+  },
+  searchBarLeft: {
+    flex: 1,
+    flexDirection: "row",
+    maxWidth: horizontalScale(220),
   },
 
   searchIcon: {
@@ -37,7 +44,7 @@ const styles = StyleSheet.create({
     height: verticalScale(24),
   },
   crossIcon: {
-    right: horizontalScale(-70),
+    paddingRight: horizontalScale(20),
     color: "gray",
   },
   searchBarText: {

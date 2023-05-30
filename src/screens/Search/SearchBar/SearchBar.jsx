@@ -15,6 +15,7 @@ export default function SearchBar({
       <View
         style={clicked ? styles.searchBar_clicked : styles.searchBar_unclicked}
       >
+        <View style={styles.searchBarLeft}>
         <Image
           source={require("../../../../assets/Search/searchIcon.png")}
           style={styles.searchIcon}
@@ -29,6 +30,8 @@ export default function SearchBar({
             setClicked(true);
           }}
         />
+        </View>
+        
 
         {/* cross Icon, depending on whether the search bar is clicked or not */}
         {clicked && (
